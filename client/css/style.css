@@ -20,8 +20,11 @@
 
 .tabcontent img {
     float: left;
-    max-width: 300px;
-    max-height: 90px;
+    position: relative;
+    max-width: 1500px;
+    max-height: 300px;
+    left: 37%;
+    top: 40%;
 }
 
 .tablink{
