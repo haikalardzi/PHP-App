@@ -7,42 +7,36 @@
     <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
 <div class="container">
+    <div class="icon"></div>
     <div class="form-box">
-        <h1 id="title">Sign Up</h1>
-        <form>
+        <h1 id="title">SIGN UP</h1>
+        <form id="registration">
             <div class="input-group">
-                <div class="input-field" id="nameField">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Name">
+                <div class="input-field" id="Username">
+                    <i class="fa-solid fa-user"></i> 
+                    <input type="text" placeholder="Username">
                 </div>
 
-                <div class="input-field">
+                <div class="input-field" id="Email">
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" placeholder="Email">
                 </div>
 
-                <div class="input-field">
+                <div class="input-field" id="Password">
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" placeholder="Password">
                 </div>
-                <p>Lost password <a href="#">Click here!</a></p>
-
-
+                <p>Forget Password? <a href="#">Click here!</a></p>
             </div>
             <div class="btn-field">
-             
-             
-             
-             
-             
-                <button type="button" id="signupBtn">Sign up</button>
-                <button type="button" id="signinBtn" class="disable">Sign in</button>
+                <button type="button" id="signupBtn">Sign Up</button>
+                <button type="button" id="signinBtn" class="disable">Sign In</button>
             </div>
         </form>
     </div>
 </div>
-<script src="js/login-page.js"> </script>
+<script src="js/login-page.js">
+</script>
 </body>
 </html>
