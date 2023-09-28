@@ -4,33 +4,52 @@ let nameField = document.getElementById("Username");
 let title = document.getElementById("title");
 
 signinBtn.onclick = function(){
+    if (!signinBtn.classList.contains("disable")){
+        var email    = document.getElementById("Email");
+        var password = document.getElementById("Password");
+        console.log(
+            "This form has a email of " + email.value +
+            " and password of " + password.value
+        );
+        email.value    = "";
+        password.value = "";
+    }
     signinBtn.style.background = "#3c00a0";
     signupBtn.style.background = "#ffffffab"
     signupBtn.style.color = "#555";
     signinBtn.style.color = "#fff";
     nameField.style.maxHeight = "0";
-    title.innerHTML = "Sign In";
+    title.innerHTML = "SIGN IN";
     signupBtn.classList.add("disable");
     signinBtn.classList.remove("disable");
-    if (signupBtn.classList.contains("disable")){
-        getForm();
-    }
 }
 
 
 
 signupBtn.onclick = function(){
+    if (!signupBtn.classList.contains("disable")){
+        var username = document.getElementById("Username-value");
+        var email    = document.getElementById("Email");
+        var password = document.getElementById("Password");
+        console.log(
+            "This form has a username of " + username.value + 
+            ", email of " + email.value + 
+            " and password of " + password.value
+        );
+        username.value = "";
+        email.value    = "";
+        password.value = "";
+    }
     signupBtn.style.background = "#3c00a0";
     signinBtn.style.background = "#ffffffab"
     signupBtn.style.color = "#fff";
     signinBtn.style.color = "#555";
     nameField.style.maxHeight = "60px";
-    title.innerHTML = "Sign Up";
+    title.innerHTML = "SIGN UP";``
     signupBtn.classList.remove("disable");
     signinBtn.classList.add("disable");
-    if (signinBtn.classList.contains("disable")){
-        getForm();
-    }
+           
+        
 }
 
 function load(){
@@ -40,15 +59,4 @@ function load(){
     }
     xhttp.open("GET", null);
     xhttp.send();
-}
-
-function getForm(){
-    var data = new FormData(document.getElementById("registration"));
-
-    fetch("SERVER-SCRIPT", { method: "get", body: data })
-        .then(res=>res.text())
-        .then(txt=>console.log(txt))
-        .catch(err=>console.log(err))
-
-    return false;
 }
