@@ -4,7 +4,9 @@ let nameField = document.getElementById("Username");
 let title = document.getElementById("title");
 
 signinBtn.onclick = function(){
+    // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
+        var xhr = new XMLHttpRequest();
         var email    = document.getElementById("Email");
         var password = document.getElementById("Password");
         console.log(
@@ -14,6 +16,9 @@ signinBtn.onclick = function(){
         email.value    = "";
         password.value = "";
     }
+    // sign in button is not in sign in mode,
+    // so it changes sign in button appearance
+    // and changes mode to sign in
     signinBtn.style.background = "#3c00a0";
     signupBtn.style.background = "#ffffffab"
     signupBtn.style.color = "#555";
@@ -27,6 +32,7 @@ signinBtn.onclick = function(){
 
 
 signupBtn.onclick = function(){
+    // sign up button is sign up "mode"
     if (!signupBtn.classList.contains("disable")){
         var username = document.getElementById("Username-value");
         var email    = document.getElementById("Email");
@@ -40,6 +46,9 @@ signupBtn.onclick = function(){
         email.value    = "";
         password.value = "";
     }
+    // sign in button is not in sign in mode,
+    // so it changes sign in button appearance
+    // and changes mode to sign in
     signupBtn.style.background = "#3c00a0";
     signinBtn.style.background = "#ffffffab"
     signupBtn.style.color = "#fff";
