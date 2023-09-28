@@ -9,6 +9,7 @@ signinBtn.onclick = function(){
         var xhr = new XMLHttpRequest();
         var email    = document.getElementById("Email");
         var password = document.getElementById("Password");
+        // xhr.open('POST', 'server/signin.php', true); // TODO: signin.php
         console.log(
             "This form has a email of " + email.value +
             " and password of " + password.value
