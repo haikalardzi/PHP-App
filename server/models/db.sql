@@ -30,23 +30,23 @@ CREATE INDEX `fk_Seller_Users1_idx` ON `db`.`Seller` (`Users_username` ASC) VISI
 
 
 -- -----------------------------------------------------
--- Table `db`.`item`
+-- Table `db`.`Item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`item` (
-  `item_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `db`.`Item` (
+  `Item_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NULL,
   `Seller_username` INT NOT NULL,
   `Seller_Users_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`item_id`, `Seller_Users_username`),
-  CONSTRAINT `fk_item_Seller1`
+  PRIMARY KEY (`Item_id`, `Seller_Users_username`),
+  CONSTRAINT `fk_Item_Seller1`
     FOREIGN KEY (`Seller_Users_username`)
     REFERENCES `db`.`Seller` (`Users_username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
-CREATE INDEX `fk_item_Seller1_idx` ON `db`.`item` (`Seller_Users_username` ASC) VISIBLE;
+CREATE INDEX `fk_Item_Seller1_idx` ON `db`.`Item` (`Seller_Users_username` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -70,9 +70,10 @@ GRANT SELECT, INSERT, TRIGGER ON TABLE `db`.* TO 'admin';
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `db`.* TO 'admin';
 GRANT EXECUTE ON ROUTINE `db`.* TO 'admin';
 
-CREATE USER 'user' IDENTIFIED BY 'properuserisintheHOUZ';
-
+CREATE USER 'user' IDENTIFIED BY 'properuserisintheHOUSE';
 GRANT SELECT ON TABLE `db`.* TO 'user';
 GRANT SELECT, INSERT, TRIGGER ON TABLE `db`.* TO 'user';
 
 CREATE USER 'guest' IDENTIFIED BY 'tamu';
+GRANT SELECT, INSERT ON TABLE `db`.User TO 'guest';
+GRANT SELECT, ON TABLE `db`.Item;
