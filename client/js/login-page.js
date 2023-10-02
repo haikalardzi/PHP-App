@@ -1,17 +1,17 @@
 let signupBtn = document.getElementById("signupBtn");
 let signinBtn = document.getElementById("signinBtn");
-let nameField = document.getElementById("Username");
+let nameField = document.getElementById("EmailBox");
 let title = document.getElementById("title");
 
 signinBtn.onclick = function(){
     // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
         //get texts in form
-        var email    = document.getElementById("Email").value;
+        var username    = document.getElementById("Username-value").value;
         var password = document.getElementById("Password").value;
         //console log of sign in result
         console.log(
-            "This form has a email of " + email +
+            "This form has a Username of " + username +
             " and password of " + password
         ); 
 
@@ -24,7 +24,7 @@ signinBtn.onclick = function(){
                 var responseData = JSON.parse(xhr.responseText);
                 console.log(responseData.message);
                 if (responseData.success) {
-                    email.value = "";
+                    username.value = "";
                     password.value = "";
                 } else {
                     console.log("sign in failed");
@@ -39,7 +39,7 @@ signinBtn.onclick = function(){
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         // preparing datas from form
-        var data = "email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password);
+        var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
         // sending xmlhttprequest
         xhr.send(data);
     }
