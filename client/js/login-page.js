@@ -24,7 +24,7 @@ signinBtn.onclick = function(){
                 var responseData = JSON.parse(xhr.responseText);
                 console.log(responseData.message);
                 if (responseData.success) {
-                    email.value = "";
+                    username.value = "";
                     password.value = "";
                 } else {
                     console.log("sign in failed");
@@ -39,7 +39,7 @@ signinBtn.onclick = function(){
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         // preparing datas from form
-        var data = "email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password);
+        var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
         // sending xmlhttprequest
         xhr.send(data);
     }
