@@ -19,6 +19,7 @@ services:
       MYSQL_DATABASE: saranghaengbok_db
       MYSQL_USER: guest
       MYSQL_PASSWORD: tamu
+  # TODO: add phpmyadmin extension
 
 volumes:
   db_data:
