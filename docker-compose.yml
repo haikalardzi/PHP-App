@@ -1,6 +1,24 @@
 version: '3.3'
 services:
   web:
+    build: .
     image: tubes-1:latest
     ports:
       - 8008:80
+    environment:
+      DB_HOST: localhost
+      DB_USER: guest
+      DB_PASSWORD: tamu
+      DB_DATABASE: db
+  db:
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: db
+      MYSQL_USER: guest
+      MYSQL_PASSWORD: tamu
+
+volumes:
+  db_data:
