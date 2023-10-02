@@ -1,17 +1,17 @@
 let signupBtn = document.getElementById("signupBtn");
 let signinBtn = document.getElementById("signinBtn");
-let nameField = document.getElementById("Username");
+let nameField = document.getElementById("EmailBox");
 let title = document.getElementById("title");
 
 signinBtn.onclick = function(){
     // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
         //get texts in form
-        var email    = document.getElementById("Email").value;
+        var username    = document.getElementById("Username-value").value;
         var password = document.getElementById("Password").value;
         //console log of sign in result
         console.log(
-            "This form has a email of " + email +
+            "This form has a Username of " + username +
             " and password of " + password
         ); 
 
