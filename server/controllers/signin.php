@@ -22,13 +22,12 @@
     // if found something from the query, determined by the number of rows
     // and making response as json format
     if($result->num_rows == 1) {
-        $role = "USER";
+        $username = "user";
+        $password = "properuserisintheHOUSE";
         $response = array("success" => true, "message" => "Sign in as "+$username);
     } elseif ($result->num_rows == 0){
-        $role = "GUEST";
         $response = array("success" => false, "message" => "Sign in failed: user not found");
     } else {
-        $role = "GUEST";
         $response = array("success" => false, "message" => "Sign in failed: unknown error, found multiple user");
     }
     header('Content-Type: application/json');
