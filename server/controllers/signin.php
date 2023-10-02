@@ -27,6 +27,7 @@
         $role = "GUEST";
         $response = array("success" => false, "messgae" => "Sign in failed: unknown error, found multiple user");
     }
+    header('Content-Type: application/json');
     echo json_encode($response);
 }
 ?>
