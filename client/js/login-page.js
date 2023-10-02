@@ -6,29 +6,42 @@ let title = document.getElementById("title");
 signinBtn.onclick = function(){
     // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
-        //xmlhttprequest instantiate
-        var xhr = new XMLHttpRequest();
         //get texts in form
-        var email    = document.getElementById("Email");
-        var password = document.getElementById("Password");
-        //method to be sent by xhr as http
-        xhr.open('POST', '../server/controllers/signin.php', true);
+        var email    = document.getElementById("Email").value;
+        var password = document.getElementById("Password").value;
         //console log of sign in result
         console.log(
-            "This form has a email of " + email.value +
-            " and password of " + password.value
+            "This form has a email of " + email +
+            " and password of " + password
         ); 
+
+        //xmlhttprequest instantiate
+        var xhr = new XMLHttpRequest();
         // callback function for handling response
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // Process the response data here
                 var responseData = JSON.parse(xhr.responseText);
+                console.log(responseData.message);
+                if (responseData.success) {
+                    email.value = "";
+                    password.value = "";
+                } else {
+                    console.log("sign in failed");
+                    console.log("error: " + responseData.message)
+                }
                 // Update the DOM or perform other actions with the data
             }
         };
-        xhr.send();
-        email.value    = "";
-        password.value = "";
+
+        //method to be sent by xhr to php script and seting request header
+        xhr.open('POST', '../server/controllers/signin.php', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // preparing datas from form
+        var data = "email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password);
+        // sending xmlhttprequest
+        xhr.send(data);
     }
     // sign in button is not in sign in mode,
     // so it changes sign in button appearance
@@ -48,15 +61,15 @@ signinBtn.onclick = function(){
 signupBtn.onclick = function(){
     // sign up button is sign up "mode"
     if (!signupBtn.classList.contains("disable")){
-        var username = document.getElementById("Username-value");
-        var email    = document.getElementById("Email");
+        var email = document.getElementById("email-value");
+        var email    = document.getElementById("email");
         var password = document.getElementById("Password");
         console.log(
-            "This form has a username of " + username.value + 
+            "This form has a email of " + email.value + 
             ", email of " + email.value + 
             " and password of " + password.value
         );
-        username.value = "";
+        email.value = "";
         email.value    = "";
         password.value = "";
     }
