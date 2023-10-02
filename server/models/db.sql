@@ -1,11 +1,11 @@
 
-CREATE SCHEMA IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8 ;
-USE `db` ;
+CREATE SCHEMA IF NOT EXISTS `saranghaengbok_db` DEFAULT CHARACTER SET utf8 ;
+USE `saranghaengbok_db` ;
 
 -- -----------------------------------------------------
--- Table `db`.`User`
+-- Table `saranghaengbok_db`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`User` (
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`User` (
   `email` VARCHAR(64) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(256) NOT NULL,
@@ -14,66 +14,67 @@ CREATE TABLE IF NOT EXISTS `db`.`User` (
 
 
 -- -----------------------------------------------------
--- Table `db`.`Seller`
+-- Table `saranghaengbok_db`.`Seller`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Seller` (
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Seller` (
   `Users_username` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Users_username`),
   CONSTRAINT `fk_Seller_Users1`
     FOREIGN KEY (`Users_username`)
-    REFERENCES `db`.`User` (`username`)
+    REFERENCES `saranghaengbok_db`.`User` (`username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
-CREATE INDEX `fk_Seller_Users1_idx` ON `db`.`Seller` (`Users_username` ASC) VISIBLE;
+CREATE INDEX `fk_Seller_Users1_idx` ON `saranghaengbok_db`.`Seller` (`Users_username` ASC);
 
 
 -- -----------------------------------------------------
--- Table `db`.`Item`
+-- Table `saranghaengbok_db`.`Item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Item` (
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Item` (
   `Item_id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `picture_path` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NULL,
   `Seller_username` INT NOT NULL,
   `Seller_Users_username` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Item_id`, `Seller_Users_username`),
   CONSTRAINT `fk_Item_Seller1`
     FOREIGN KEY (`Seller_Users_username`)
-    REFERENCES `db`.`Seller` (`Users_username`)
+    REFERENCES `saranghaengbok_db`.`Seller` (`Users_username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
-CREATE INDEX `fk_Item_Seller1_idx` ON `db`.`Item` (`Seller_Users_username` ASC) VISIBLE;
+CREATE INDEX `fk_Item_Seller1_idx` ON `saranghaengbok_db`.`Item` (`Seller_Users_username` ASC);
 
 
 -- -----------------------------------------------------
--- Table `db`.`Buyer`
+-- Table `saranghaengbok_db`.`Buyer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Buyer` (
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Buyer` (
   `Users_username` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Users_username`),
   CONSTRAINT `fk_Buyer_Users1`
     FOREIGN KEY (`Users_username`)
-    REFERENCES `db`.`User` (`username`)
+    REFERENCES `saranghaengbok_db`.`User` (`username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
 CREATE USER 'admin' IDENTIFIED BY 'BOOMbitchgetouttheway';
-
-GRANT ALL ON `db`.* TO 'admin';
-GRANT SELECT ON TABLE `db`.* TO 'admin';
-GRANT SELECT, INSERT, TRIGGER ON TABLE `db`.* TO 'admin';
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `db`.* TO 'admin';
-GRANT EXECUTE ON ROUTINE `db`.* TO 'admin';
-
+-- Biasanya user 'admin' sudah ada, jadi ganti password aja
+-- SET PASSWORD FOR 'admin'@'%' = PASSWORD('BOOMbitchgetouttheway');
 CREATE USER 'user' IDENTIFIED BY 'properuserisintheHOUSE';
-GRANT SELECT ON TABLE `db`.* TO 'user';
-GRANT SELECT, INSERT, TRIGGER ON TABLE `db`.* TO 'user';
-
 CREATE USER 'guest' IDENTIFIED BY 'tamu';
-GRANT SELECT, INSERT ON TABLE `db`.User TO 'guest';
-GRANT SELECT, ON TABLE `db`.Item;
+
+flush privileges;
+
+GRANT ALL ON `saranghaengbok_db`.* TO 'admin';
+
+GRANT SELECT ON TABLE `saranghaengbok_db`.* TO 'user';
+GRANT SELECT, INSERT, TRIGGER ON TABLE `saranghaengbok_db`.* TO 'user';
+
+GRANT SELECT, INSERT ON TABLE `saranghaengbok_db`.User TO 'guest';
+GRANT SELECT ON TABLE `saranghaengbok_db`.Item TO 'guest';

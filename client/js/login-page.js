@@ -6,14 +6,27 @@ let title = document.getElementById("title");
 signinBtn.onclick = function(){
     // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
+        //xmlhttprequest instantiate
         var xhr = new XMLHttpRequest();
+        //get texts in form
         var email    = document.getElementById("Email");
         var password = document.getElementById("Password");
-        // xhr.open('POST', 'server/signin.php', true); // TODO: signin.php
+        //method to be sent by xhr as http
+        xhr.open('POST', '../server/controllers/signin.php', true);
+        //console log of sign in result
         console.log(
             "This form has a email of " + email.value +
             " and password of " + password.value
-        );
+        ); 
+        // callback function for handling response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Process the response data here
+                var responseData = JSON.parse(xhr.responseText);
+                // Update the DOM or perform other actions with the data
+            }
+        };
+        xhr.send();
         email.value    = "";
         password.value = "";
     }
