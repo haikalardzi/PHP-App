@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`User` (
   `password` VARCHAR(256) NOT NULL,
   PRIMARY KEY (`username`))
 ;
-
+INSERT INTO `User` (`email`, `username`, `password`) VALUES ('christodharma@gmail.com', 'christodharma', 'yangliatinicumachristo');
 
 -- -----------------------------------------------------
 -- Table `saranghaengbok_db`.`Seller`
@@ -63,18 +63,8 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Buyer` (
     ON UPDATE NO ACTION)
 ;
 
-CREATE USER 'admin' IDENTIFIED BY 'BOOMbitchgetouttheway';
--- Biasanya user 'admin' sudah ada, jadi ganti password aja
--- SET PASSWORD FOR 'admin'@'%' = PASSWORD('BOOMbitchgetouttheway');
-CREATE USER 'user' IDENTIFIED BY 'properuserisintheHOUSE';
-CREATE USER 'guest' IDENTIFIED BY 'tamu';
+CREATE USER 'saranghaengbok_db_admin' IDENTIFIED BY 'BOOMbitchgetouttheway';
 
 flush privileges;
 
-GRANT ALL ON `saranghaengbok_db`.* TO 'admin';
-
-GRANT SELECT ON TABLE `saranghaengbok_db`.* TO 'user';
-GRANT SELECT, INSERT, TRIGGER ON TABLE `saranghaengbok_db`.* TO 'user';
-
-GRANT SELECT, INSERT ON TABLE `saranghaengbok_db`.User TO 'guest';
-GRANT SELECT ON TABLE `saranghaengbok_db`.Item TO 'guest';
+GRANT ALL ON `saranghaengbok_db`.* TO 'saranghaengbok_db_admin';

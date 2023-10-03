@@ -16,7 +16,14 @@ signinBtn.onclick = function(){
         ); 
 
         //xmlhttprequest instantiate
-        var xhr = new XMLHttpRequest();
+        const formdata = new FormData();
+        formdata.append('username', username);
+        formdata.append('password', password);
+        const xhr = new XMLHttpRequest();
+        //method to be sent by xhr to php script and seting request header
+        xhr.open('POST', '../../server/controllers/signin.php', true);
+        // sending xmlhttprequest
+        xhr.send(formdata);
         // callback function for handling response
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -31,17 +38,11 @@ signinBtn.onclick = function(){
                     console.log("error: " + responseData.message)
                 }
                 // Update the DOM or perform other actions with the data
+            } else if (xhr.status === 404) {
+                var responseData = JSON.parse(xhr.responseText);
+                console.log(responseData.message);
             }
         };
-
-        //method to be sent by xhr to php script and seting request header
-        xhr.open('POST', '../server/controllers/signin.php', true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        // preparing datas from form
-        var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
-        // sending xmlhttprequest
-        xhr.send(data);
     }
     // sign in button is not in sign in mode,
     // so it changes sign in button appearance

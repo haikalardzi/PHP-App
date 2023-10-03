@@ -2,35 +2,37 @@
     include "connect_database.php";
     //only accepting post method
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // instantiating username and password variable
-        // $username = $_POST["username"];
-        // TODO: miskomunikasi, di signin yang diminta email, tapi ini minta username
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        // echo "username=" + $username + "&password=" + $password;
-    
-    //verification process
-    $conn = connect_database("guest", "tamu"); // karena ingin mencari data di table user, jadi sebelumnya establish koneksi sebagai tamu
-    $query = "SELECT * FROM user WHERE email = ? AND password = ?";
-    // $query = "SELECT * FROM user WHERE username = ? AND password = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $email, $password); // data di table adalah string, maka dari itu bind_param "ss" (string)
-    // $stmt->bind_param("ss", $username, $password); // data di table adalah string, maka dari itu bind_param "ss" (string)
-    $stmt->execute();
-    $result = $stmt->get_result();
+        //verification process
+        $conn = connect_database();
+        $query = "SELECT * FROM User WHERE username = ? AND password = ?";
+        $stmt = $conn->prepare($query);
 
-    // if found something from the query, determined by the number of rows
-    // and making response as json format
-    if($result->num_rows == 1) {
-        $username = "user";
-        $password = "properuserisintheHOUSE";
-        $response = array("success" => true, "message" => "Sign in as "+$username);
-    } elseif ($result->num_rows == 0){
-        $response = array("success" => false, "message" => "Sign in failed: user not found");
-    } else {
-        $response = array("success" => false, "message" => "Sign in failed: unknown error, found multiple user");
+        if (!$stmt) {
+            die("Error in query preparation: " . $conn->error);
+        }
+
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $stmt->bind_param("ss", $username, $password);
+        $result = $stmt->execute();
+
+        if (!$result) {
+            die("Error in query execution: " . $stmt->error);
+        }
+        // Bind the result variables
+        $stmt->bind_result($resultEmail, $resultUsername, $resultPassword);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // If found something from the query, determined by the fetched results
+        // and making response as json format
+        if (!empty($resultUsername) && !empty($resultPassword)) {
+            $response = array("success" => true, "message" => "Sign in found");
+        } else {
+            $response = array("success" => false, "message" => "Error: not found");
+        }
+        echo json_encode($response);
+        mysqli_close($conn);
     }
-    header('Content-Type: application/json');
-    echo json_encode($response);
-}
 ?>
