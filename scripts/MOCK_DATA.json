@@ -1,0 +1,75 @@
+[
+    {
+      "prod_id": "00001",
+      "prod_name": "bts stay gold album",
+      "price": 1000000,
+      "prod_quant": 5,
+      "prod_desc": "New, includes BTS sticker",
+      "prod_image": "bts_stay_gold.jpeg"
+    },
+    {
+      "prod_id": "00002",
+      "prod_name": "bts wings album",
+      "price": 1000000,
+      "prod_quant": 11,
+      "prod_desc": "New, includes BTS sticker",
+      "prod_image": "bts_wings.jpeg"
+    },
+    {
+      "prod_id": "00003",
+      "prod_name": "Blackpink Bag",
+      "price": 1000000,
+      "prod_quant": 8,
+      "prod_desc": "Brand new, limited edition",
+      "prod_image": "blackpink_bag.jpeg"
+    },
+    {
+      "prod_id": "00004",
+      "prod_name": "Album kill this love blackpink",
+      "price": 1100000,
+      "prod_quant": 15,
+      "prod_desc": "Includes photo cards and poster",
+      "prod_image": "kill_this_love_blackpink.jpeg"
+    },
+    {
+      "prod_id": "00005",
+      "prod_name": "keychain stray kids",
+      "price": 950000,
+      "prod_quant": 7,
+      "prod_desc": "all members keychain",
+      "prod_image": "straykids_keychain.jpeg"
+    },
+    {
+        "prod_id": "00006",
+        "prod_name": "bts shirt",
+        "price": 900000,
+        "prod_quant": 3,
+        "prod_desc": "baju bts baru",
+        "prod_image": "bts_shirt.jpeg"
+    },
+    {
+        "prod_id": "00007",
+        "prod_name": "bts shirt",
+        "price": 900000,
+        "prod_quant": 3,
+        "prod_desc": "baju bts baru",
+        "prod_image": "bts_shirt.jpeg"
+    },
+    {
+        "prod_id": "00008",
+        "prod_name": "Army shirt",
+        "price": 400000,
+        "prod_quant": 3,
+        "prod_desc": "baju army, baru, harga bisa nego",
+        "prod_image": "army-shirt.jpeg"
+    },
+    {
+        "prod_id": "00009",
+        "prod_name": "baju polos blackpink",
+        "price": 5000000,
+        "prod_quant": 3,
+        "prod_desc": "baju polos blackpink, baru, harga bisa nego",
+        "prod_image": "army-shirt.jpeg"
+    }
+  ]
+  

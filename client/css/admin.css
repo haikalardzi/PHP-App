@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+/* admin */
+*{
+position: relative;
+width: 1280px;
+height: 768px;
+
+background: #FFFFFF;
+border-radius: 10px;
+}
+
+/* topBar */
+.topBar{
+position: absolute;
+width: 1280px;
+height: 116px;
+left: 0px;
+top: -2px;
+}
+
+
+/* Rectangle 4 */
+.topBarBox{
+position: absolute;
+width: 1280px;
+height: 116px;
+left: 0px;
+top: -2px;
+
+background: #AA1E1E;
+}
+
+/* icon */
+.icon{
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    left: 1129px;
+    top: 37px;
+
+
+
+/* Rectangle 1 */
+    .bodyIcon{
+    position: absolute;
+    width: 30px;
+    height: 21px;
+    left: 1129px;
+    top: 56px;
+
+    background: #D9D9D9;
+    }
+
+/* Ellipse 1 */
+    .headIcon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1134px;
+    top: 37px;
+
+    background: #D9D9D9;
+    }
+}
+
+/* search-field */
+.search-field{
+position: absolute;
+width: 411.44px;
+height: 34px;
+left: 500px;
+top: 36px;
+
+
+
+/* search-box */
+    .search-box{
+    position: absolute;
+    width: 411.44px;
+    height: 34px;
+    left: calc(50% - 411.44px/2 + 65.72px);
+    top: 36px;
+
+    background: rgba(255, 255, 255, 0.67);
+    border-radius: 10px;
+    }
+
+/* [CITYPNG 1 */
+    .searchimg{
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 877px;
+    top: 38px;
+
+    background: url(../image/search.png);
+    }
+
+/* Search.. */
+    .searchTxt{
+    position: absolute;
+    width: 115.94px;
+    height: 24.98px;
+    left: 509.23px;
+    top: 40.86px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height */
+
+    color: rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* clipart861651 1 */
+.option-icon{
+position: absolute;
+width: 36px;
+height: 32px;
+left: 32px;
+top: 72px;
+
+background: url(../image/option.png);
+transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+/* LOG OUT */
+.logOutTxt{
+position: absolute;
+width: 98px;
+height: 24px;
+left: 1182px;
+top: 43px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
+
+
+/* HI, ADMIN! */
+.greetAdmin{
+position: absolute;
+width: 112px;
+height: 27px;
+left: 1000px;
+top: 43px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
+
+
+/* logo */
+.logo{
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    flex-shrink: 0;
+    min-width: 400px;
+    min-height: 100px;
+    max-width: 740px;
+    max-height: 199px;
+    background-color: transparent;
+
+background: url(../image/logoregis.svg);
+}
+/* menu-admin */
+.menu-admin{
+position: absolute;
+width: 210px;
+height: 654px;
+left: -1px;
+top: 114px;
+}
+
+
+/* menu-bar */
+.menu-bar{
+position: absolute;
+width: 210px;
+height: 654px;
+left: -1px;
+top: 114px;
+
+background: #012A93;
+}
+
+/* PRODUK */
+.produk{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 13px;
+top: 125px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
+
+
+/* EditProduk */
+.editProduk{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 180px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* DaftarProduk */
+.daftarProduk{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 155px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* DaftarPengguna */
+.daftarUser{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 296px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* DaftarTransaksi */
+.daftarTransaksi{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 432px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+
+}
+
+/* EditTransaksi */
+.editTransaksi{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 454px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* HapusTransaksi */
+.hapusTransaksi{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 26px;
+top: 501px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+
+}
+
+/* EditProfilPengguna */
+.editProfilUser{
+position: absolute;
+width: 158px;
+height: 16px;
+left: 25px;
+top: 323px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* HapusPengguna */
+.deleteUser{
+position: absolute;
+width: 125px;
+height: 34px;
+left: 25px;
+top: 374px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* TambahProduk */
+.addProduk{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 25px;
+top: 205px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+}
+
+
+/* HapusProduk */
+.hapusProduk{
+position: absolute;
+width: 125px;
+height: 27px;
+left: 27px;
+top: 232px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+
+}
+
+/* TambahPengguna */
+.addUser{
+position: absolute;
+width: 140px;
+height: 19px;
+left: 24px;
+top: 347px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+
+color: #FFFFFF;
+}
+
+
+/* TambahTransaksi */
+.addTransaksi{
+position: absolute;
+width: 140px;
+height: 19px;
+left: 25px;
+top: 481px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+}
+
+/* PENGGUNA */
+.user{
+position: absolute;
+width: 138px;
+height: 27px;
+left: 8px;
+top: 263px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
+
+
+/* TRANSAKSI */
+.transaksi{
+position: absolute;
+width: 138px;
+height: 27px;
+left: 12px;
+top: 402px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
