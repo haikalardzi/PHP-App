@@ -3,19 +3,15 @@
     //only accepting post method
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // instantiating username and password variable
-        // $username = $_POST["username"];
-        // TODO: miskomunikasi, di signin yang diminta email, tapi ini minta username
-        $email = $_POST["email"];
+        $username = $_POST["username"];
         $password = $_POST["password"];
-        // echo "username=" + $username + "&password=" + $password;
+        echo "username=" + $username + "&password=" + $password;
     
     //verification process
     $conn = connect_database("guest", "tamu"); // karena ingin mencari data di table user, jadi sebelumnya establish koneksi sebagai tamu
-    $query = "SELECT * FROM user WHERE email = ? AND password = ?";
-    // $query = "SELECT * FROM user WHERE username = ? AND password = ?";
+    $query = "SELECT * FROM user WHERE username = ? AND password = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $email, $password); // data di table adalah string, maka dari itu bind_param "ss" (string)
-    // $stmt->bind_param("ss", $username, $password); // data di table adalah string, maka dari itu bind_param "ss" (string)
+    $stmt->bind_param("ss", $username, $password); // data di table adalah string, maka dari itu bind_param "ss" (string)
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -30,6 +26,7 @@
     } else {
         $response = array("success" => false, "message" => "Sign in failed: unknown error, found multiple user");
     }
+    mysqli_close($conn);
     header('Content-Type: application/json');
     echo json_encode($response);
 }

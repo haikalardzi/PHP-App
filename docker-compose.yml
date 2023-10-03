@@ -8,21 +8,21 @@ services:
     environment:
       DB_HOST: db
   db:
-    image: mysql:8.0
+    image: mysql:latest
+    ports:
+      - 6603:3306
     volumes:
       - db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
   phpmyadmin:
     image: phpmyadmin:latest
-    links:
-      - db
+    restart: always
     ports:
       - 8080:80
     environment:
-      PMA_HOST: db
-      PMA_USER: admin
-      PMA_PASSWORD: admin
-      MYSQL_ROOT_PASSWORD: admin
+      - PMA_ARBITRARY=1
+      - PMA_PORT=3306
+      - PMA_HOST=db
 volumes:
   db_data:

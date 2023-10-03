@@ -16,7 +16,9 @@ signinBtn.onclick = function(){
         ); 
 
         //xmlhttprequest instantiate
-        var xhr = new XMLHttpRequest();
+        var formdata = new formData();
+        formdata.append(username);
+        formdata.append(password);
         // callback function for handling response
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
