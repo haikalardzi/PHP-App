@@ -6,15 +6,43 @@ let title = document.getElementById("title");
 signinBtn.onclick = function(){
     // sign in button is sign in "mode"
     if (!signinBtn.classList.contains("disable")){
-        var xhr = new XMLHttpRequest();
-        var username    = document.getElementById("Username-value");
-        var password = document.getElementById("Password");
+        //get texts in form
+        var username    = document.getElementById("Username-value").value;
+        var password = document.getElementById("Password").value;
+        //console log of sign in result
         console.log(
-            "This form has a Username of " + username.value +
-            " and password of " + password.value
-        );
-        email.value    = "";
-        password.value = "";
+            "This form has a Username of " + username +
+            " and password of " + password
+        ); 
+
+        //xmlhttprequest instantiate
+        const formdata = new FormData();
+        formdata.append('username', username);
+        formdata.append('password', password);
+        const xhr = new XMLHttpRequest();
+        //method to be sent by xhr to php script and seting request header
+        xhr.open('POST', '../../server/controllers/signin.php', true);
+        // sending xmlhttprequest
+        xhr.send(formdata);
+        // callback function for handling response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Process the response data here
+                var responseData = JSON.parse(xhr.responseText);
+                console.log(responseData.message);
+                if (responseData.success) {
+                    username.value = "";
+                    password.value = "";
+                } else {
+                    console.log("sign in failed");
+                    console.log("error: " + responseData.message)
+                }
+                // Update the DOM or perform other actions with the data
+            } else if (xhr.status === 404) {
+                var responseData = JSON.parse(xhr.responseText);
+                console.log(responseData.message);
+            }
+        };
     }
     // sign in button is not in sign in mode,
     // so it changes sign in button appearance
@@ -34,15 +62,15 @@ signinBtn.onclick = function(){
 signupBtn.onclick = function(){
     // sign up button is sign up "mode"
     if (!signupBtn.classList.contains("disable")){
-        var username = document.getElementById("Username-value");
-        var email    = document.getElementById("Email");
+        var email = document.getElementById("email-value");
+        var email    = document.getElementById("email");
         var password = document.getElementById("Password");
         console.log(
-            "This form has a username of " + username.value + 
+            "This form has a email of " + email.value + 
             ", email of " + email.value + 
             " and password of " + password.value
         );
-        username.value = "";
+        email.value = "";
         email.value    = "";
         password.value = "";
     }
