@@ -1,10 +1,10 @@
 <?php
+    include "connect_database.php";
+    $con = connect_database();
 
-$con = new mysqli('db', 'guest', 'tamu', 'saranghaengbok_db');
-
-if ($con) {
-    echo "wow";
-} else {
-    echo "wokwow";
-}
+    if ($con) {
+        echo "wow";
+    } else {
+        echo "wokwow";
+    }
 ?>
