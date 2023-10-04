@@ -24,18 +24,33 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Item` (
   `price` FLOAT(10,2) NOT NULL,
   `quantity` INT NOT NULL,
   `Seller_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Item_id`, `Seller_Users_username`),
+  PRIMARY KEY (`Item_id`, `Seller_username`),
   CONSTRAINT `fk_Item_Seller1`
     FOREIGN KEY (`Seller_username`)
-    REFERENCES `saranghaengbok_db`.`User` (`Users_username`)
+    REFERENCES `saranghaengbok_db`.`User` (`username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
+CREATE INDEX `fk_Item_Seller1_idx` ON `saranghaengbok_db`.`Item` (`Seller_username` ASC);
 
-CREATE INDEX `fk_Item_Seller1_idx` ON `saranghaengbok_db`.`Item` (`Seller_Users_username` ASC);
+-- -----------------------------------------------------
+-- Table `saranghaengbok_db`.`Cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Cart` (
+  `Item_id` INT NOT NULL,
+  `Cart_username` VARCHAR(45) NOT NULL,
+  PRIMARY KEY(`Item_id`, `Cart_username`),
+  CONSTRAINT `fk_Cart_username`
+    FOREIGN KEY (`Cart_username`)
+    REFERENCES `saranghaengbok_db`.`User`(`username`),
+  CONSTRAINT `fk_Cart_Item_id`
+    FOREIGN KEY (`Item_id`)
+    REFERENCES `saranghaengbok_db`.`Item`(`Item_id`)
+);
 
-CREATE USER 'saranghaengbok_db_admin' IDENTIFIED BY 'BOOMbitchgetouttheway';
+
+CREATE USER `saranghaengbok_db_admin` IDENTIFIED BY 'BOOMbitchgetouttheway';
 
 flush privileges;
 
-GRANT ALL ON `saranghaengbok_db`.* TO 'saranghaengbok_db_admin';
+GRANT ALL ON `saranghaengbok_db`.* TO `saranghaengbok_db_admin`;
