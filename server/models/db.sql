@@ -14,22 +14,6 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`User` (
 INSERT INTO `User` (`email`, `username`, `password`) VALUES ('christodharma@gmail.com', 'christodharma', 'yangliatinicumachristo');
 
 -- -----------------------------------------------------
--- Table `saranghaengbok_db`.`Seller`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Seller` (
-  `Users_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Users_username`),
-  CONSTRAINT `fk_Seller_Users1`
-    FOREIGN KEY (`Users_username`)
-    REFERENCES `saranghaengbok_db`.`User` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
-
-CREATE INDEX `fk_Seller_Users1_idx` ON `saranghaengbok_db`.`Seller` (`Users_username` ASC);
-
-
--- -----------------------------------------------------
 -- Table `saranghaengbok_db`.`Item`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Item` (
@@ -37,31 +21,18 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Item` (
   `name` VARCHAR(255) NOT NULL,
   `picture_path` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NULL,
-  `Seller_username` INT NOT NULL,
-  `Seller_Users_username` VARCHAR(45) NOT NULL,
+  `price` FLOAT(10,2) NOT NULL,
+  `quantity` INT NOT NULL,
+  `Seller_username` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Item_id`, `Seller_Users_username`),
   CONSTRAINT `fk_Item_Seller1`
-    FOREIGN KEY (`Seller_Users_username`)
-    REFERENCES `saranghaengbok_db`.`Seller` (`Users_username`)
+    FOREIGN KEY (`Seller_username`)
+    REFERENCES `saranghaengbok_db`.`User` (`Users_username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
 CREATE INDEX `fk_Item_Seller1_idx` ON `saranghaengbok_db`.`Item` (`Seller_Users_username` ASC);
-
-
--- -----------------------------------------------------
--- Table `saranghaengbok_db`.`Buyer`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Buyer` (
-  `Users_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Users_username`),
-  CONSTRAINT `fk_Buyer_Users1`
-    FOREIGN KEY (`Users_username`)
-    REFERENCES `saranghaengbok_db`.`User` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
 
 CREATE USER 'saranghaengbok_db_admin' IDENTIFIED BY 'BOOMbitchgetouttheway';
 
