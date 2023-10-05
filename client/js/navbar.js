@@ -1,6 +1,6 @@
 addnavbar = () => {
     return document.getElementById("tabgroup").innerHTML =`
-        <a class="tabexpand" href="">
+        <a class="tabexpand" href="#">
             <i class="fa-solid fa-bars"></i>
         </a>
         <img src="../image/logoregis.svg" alt="icon" width="10%" height="5%">
