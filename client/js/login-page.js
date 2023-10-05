@@ -33,6 +33,7 @@ signinBtn.onclick = function(){
                     username = "";
                     password = "";
                     alert(responseData.message);
+                    location.href = "../pages/catalog.html";
                 } else {
                     alert("error: " + responseData.message)
                 }
@@ -91,6 +92,7 @@ signupBtn.onclick = function(){
                     username = "";
                     password = "";
                     alert("Sign up success: " + responseData.message);
+                    location.href = "../pages/catalog.html";
                 } else {
                     console.log("Caught exception");
                     console.log("error: " + responseData.message);
@@ -101,53 +103,6 @@ signupBtn.onclick = function(){
                 console.log(responseData.message);
             }
         }
-        // var isUsernameUsed = Boolean(false);
-        // //create a formdata to be sent through request
-        // var formdata = new FormData();
-        // formdata.append("signal", "sign up ready");
-        // //create frontend request
-        // const xhr = new XMLHttpRequest();
-        // //open request with type request = POST
-        // xhr.open('GET', '../../server/controllers/signup.php', true);
-        // //sending request
-        // xhr.send(formdata);
-        // //get backend response
-        // xhr.onreadystatechange = function () {
-        //     if (xhr.readyState === 4 && xhr.status === 200) {
-        //         // Process the response data here
-        //         var responseData = JSON.parse(xhr.responseText);
-        //         console.log(responseData.message);
-        //         if (responseData.success) {
-        //             /**responseData column: [0] = email
-        //             *                       [1] = username
-        //             *                       [2] = password  
-        //             */                    
-        //             var usernameList = responseData.data;
-        //             for (let i = 0; i < usernameList.length; i++){
-        //                 //check for availability of the username
-        //                 if (username === usernameList[i][1]){
-        //                     alert("Username already used!");
-        //                     isUsernameUsed = true;
-        //                     console.log(usernameList[i][1]);
-        //                     username = "";
-        //                     break;
-        //                 }
-        //             }
-        //             if (!isUsernameUsed){
-                        
-        //             }
-        //         } else {
-        //             console.log("Caught exception");
-        //             console.log("error: " + responseData.message);
-        //         }
-        //         // Update the DOM or perform other actions with the data
-        //     } else if (xhr.status === 404) {
-        //         var responseData = JSON.parse(xhr.responseText);
-        //         console.log(responseData.message);
-        //     }
-        // }
-        // console.log(isUsernameUsed);
-        // // // if username available
     }
     // sign in button is not in sign in mode,
     // so it changes sign in button appearance
