@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once "connect_database.php";
     require_once "signin_query.php";
     //only accepting post method
@@ -23,6 +24,8 @@
             if (!$result) {
                 die("Error in query execution: " . $stmt->error);
             } else {
+                $_SESSION['username'] = $username;
+                $_SESSION['admin_status'] = false;
                 $response = array("success" => true, "message" => "sign up for {$email} and {$username} success");
             }
         } else {
