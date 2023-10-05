@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`item` (
   `item_id` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `picture_path` VARCHAR(255) NOT NULL,
-  `description` VARCHAR(255) NULL,
+  `description` TEXT NULL,
   `price` FLOAT(10,2) NOT NULL,
   `quantity` INT NOT NULL,
   `Seller_username` VARCHAR(45) NOT NULL,
