@@ -3,53 +3,63 @@ CREATE SCHEMA IF NOT EXISTS `saranghaengbok_db` DEFAULT CHARACTER SET utf8 ;
 USE `saranghaengbok_db` ;
 
 -- -----------------------------------------------------
--- Table `saranghaengbok_db`.`User`
+-- Table `saranghaengbok_db`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`User` (
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`user` (
   `email` VARCHAR(64) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(256) NOT NULL,
   PRIMARY KEY (`username`))
 ;
-INSERT INTO `User` (`email`, `username`, `password`) VALUES ('christodharma@gmail.com', 'christodharma', 'yangliatinicumachristo');
+INSERT INTO `user` (`email`, `username`, `password`) VALUES ('christodharma@gmail.com', 'christodharma', 'yangliatinicumachristo');
 
 -- -----------------------------------------------------
--- Table `saranghaengbok_db`.`Item`
+-- Table `saranghaengbok_db`.`admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Item` (
-  `Item_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`admin` (
+  `admin_username` VARCHAR(45) NOT NULL,
+  CONSTRAINT `fk_username`
+    FOREIGN KEY (`admin_username`)
+    REFERENCES `saranghaengbok_db`.`user`(`username`)
+);
+
+-- -----------------------------------------------------
+-- Table `saranghaengbok_db`.`item`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`item` (
+  `item_id` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `picture_path` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NULL,
   `price` FLOAT(10,2) NOT NULL,
   `quantity` INT NOT NULL,
   `Seller_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Item_id`, `Seller_username`),
-  CONSTRAINT `fk_Item_Seller1`
+  PRIMARY KEY (`item_id`, `Seller_username`),
+  CONSTRAINT `fk_item_Seller1`
     FOREIGN KEY (`Seller_username`)
-    REFERENCES `saranghaengbok_db`.`User` (`username`)
+    REFERENCES `saranghaengbok_db`.`user` (`username`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
-CREATE INDEX `fk_Item_Seller1_idx` ON `saranghaengbok_db`.`Item` (`Seller_username` ASC);
+CREATE INDEX `fk_item_Seller1_idx` ON `saranghaengbok_db`.`item` (`Seller_username` ASC);
 
 -- -----------------------------------------------------
--- Table `saranghaengbok_db`.`Cart`
+-- Table `saranghaengbok_db`.`cart`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`Cart` (
-  `Item_id` INT NOT NULL,
-  `Cart_username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY(`Item_id`, `Cart_username`),
-  CONSTRAINT `fk_Cart_username`
-    FOREIGN KEY (`Cart_username`)
-    REFERENCES `saranghaengbok_db`.`User`(`username`),
-  CONSTRAINT `fk_Cart_Item_id`
-    FOREIGN KEY (`Item_id`)
-    REFERENCES `saranghaengbok_db`.`Item`(`Item_id`)
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`cart` (
+  `item_id` INT NOT NULL,
+  `cart_username` VARCHAR(45) NOT NULL,
+  PRIMARY KEY(`item_id`, `cart_username`),
+  CONSTRAINT `fk_cart_username`
+    FOREIGN KEY (`cart_username`)
+    REFERENCES `saranghaengbok_db`.`user`(`username`),
+  CONSTRAINT `fk_cart_item_id`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `saranghaengbok_db`.`item`(`item_id`)
 );
 
 
-CREATE USER `saranghaengbok_db_admin` IDENTIFIED BY 'BOOMbitchgetouttheway';
+CREATE user `saranghaengbok_db_admin` IDENTIFIED BY 'BOOMbitchgetouttheway';
 
 flush privileges;
 
