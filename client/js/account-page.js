@@ -33,6 +33,7 @@ function cancelEdit() {
     confirmPasswordValue.value = "";
     cancelBtn.style.display = 'none';
     submitBtn.style.display = 'none';
+    confirmPasswordEditField.style.display = 'none';
 }
 
 function resetPasswordFieldStyle() {
