@@ -51,11 +51,11 @@ function changePage(page){
             
                 for (var i = 0; i < 10 && itemList.length ; i++){
                     listingTable.innerHTML += `<button class="showItem">
-                        <img id= ${itemList[i][0]} src="../image/${itemList[i][2]} " alt="${itemList[i][1]}">
-                        <p> ${itemList[i][1]} </p>
-                        <p>Rp ${itemList[i][4]} </p>
-                        <p>Quantity: ${itemList[i][5]} </p>
-                        <p> ${itemList[i][6]} </p>
+                        <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
+                        <p>${itemList[i][1]}</p>
+                        <p>Rp${itemList[i][4]}</p>
+                        <p>Quantity:${itemList[i][5]}</p>
+                        <p>${itemList[i][6]}</p>
                     </button>`
                 }
             
