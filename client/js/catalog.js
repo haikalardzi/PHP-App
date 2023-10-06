@@ -1,22 +1,23 @@
-var currentPage = 1;
 var recordsPerPage = 10;
-
+var activePage;
 
 function numPages(){
-    return Math.ceil(1000/10);
+    return Math.ceil(1000/10)-1;
 }
 
 function prevPage() {
-    if (currentPage > 1){
-        currentPage--;
-        changePage(currentPage);
+    activePage = document.getElementsByClassName("active").item(0).innerHTML;
+    if (activePage > 1){
+        activePage--;
+        changePage(activePage);
     }
 }
 
 function nextPage(){
-    if (currentPage < numPages()){
-        currentPage++;
-        changePage(currentPage);
+    activePage = document.getElementsByClassName("active").item(0).innerHTML;
+    if (activePage < numPages()){
+        activePage++;
+        changePage(activePage);
     }
 }
 
@@ -24,11 +25,16 @@ function changePage(page){
     var btnNext = document.getElementById("btnNext");
     var btnPrev = document.getElementById("btnPrev");
     var listingTable = document.getElementById("catalogview");
-    var pageSpan = document.getElementById("page");
+    var pages = [document.getElementById("secondToRight"),
+                 document.getElementById("firstToRight"),
+                 document.getElementById("middle"),
+                 document.getElementById("firstToLeft"),
+                 document.getElementById("secondToLeft")];
+    
     //XMLHttpRequest
     const formdata = new FormData();
 
-    var row = (page - 1)*10; 
+    var row = (page)*10; 
     formdata.append('rows', row);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../../server/controllers/catalog.php', true);
@@ -59,8 +65,35 @@ function changePage(page){
                     </button>`
                 }
             
-                pageSpan.innerHTML = page;
-            
+                var endpage = numPages()-4;
+                
+                for (var i = 0; i < pages.length; i++){
+                    
+                    pages[i].classList.remove("active");
+                    
+                    if (page-1 < 2){
+                        pages[i].innerHTML = i+1;
+                        pages[i].setAttribute("href", `javascript:changePage(${i})`);
+                    } else if (page > numPages()-2){
+                        pages[i].innerHTML = endpage + i;
+                        pages[i].setAttribute("href", `javascript:changePage(${endpage + i})`);
+                    } else {
+                        pages[i].innerHTML = (page-2)+i;
+                        pages[i].setAttribute("href", `javascript:changePage(${(page-2)+i})`);
+                    }
+                }
+                
+                if (page == 1){
+                    pages[0].classList.add("active");
+                } else if (page == 2){
+                    pages[1].classList.add("active");
+                } else if (page == numPages()-1){
+                    pages[3].classList.add("active");
+                } else if (page == numPages()){
+                    pages[4].classList.add("active");
+                } else {
+                    pages[2].classList.add("active");
+                }
                 if (page == 1){
                     btnPrev.style.visibility = "hidden";
                 } else {
@@ -72,6 +105,7 @@ function changePage(page){
                 } else {
                     btnNext.style.visibility = "visible";
                 }
+
             } else {
                 alert("error: " + responseData.message);
             }
