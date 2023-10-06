@@ -79,24 +79,32 @@ function submitEdit() {
     editedData = new FormData();
     if (emailValue.value != "" || emailValue.value != emailCurrent) {
         editedData.append('email', emailValue.value);
+    } else {
+        editedData.append('email', '%');
     }
     if (usernameValue.value != "" || usernameValue.value != usernameCurrent) {
         editedData.append('username', usernameValue.value);
+    } else {
+        editedData.append('username', '%');
     }
     let passwordInvalidity = document.getElementsByClassName("invalid").length;
     if (passwordValue.value != "" && passwordInvalidity == 0) {
         editedData.append('password', passwordValue.value);
     } else if (passwordInvalidity > 0) {
         alert("Password is invalid, please input valid password")
-    }
-    if (editedData.has('email') || editedData.has('username') || editedData.has('password')) {
-        // TODO: update_profile.php
-        console.log("submitted!");
-        // const xhr = new XMLHttpRequest();
-        // xhr.open("POST", /*insert php for update database here*/, true);
-        // xhr.send(editedData);
-        location.reload();
     } else {
-        console.log("nothing is changed, cancelling");
+        editedData.append('password', '%');
     }
+    for (const iterator of editedData.values()) {
+        if (iterator != '%'){
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../../server/controllers/account-page.php', true);
+            xhr.send(formData);
+            location.reload();
+            return;
+        }
+    }
+    // all form is empty or FormData is appended '%'
+    // cancelling if so
+    console.log("all form is empty, cancelling");
 }
