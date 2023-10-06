@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +8,6 @@
         <link rel="stylesheet" href="../css/navbar.css">
         <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
         <script src="../js/navbar.js"></script>
-        <!-- <?php session_start() ?> -->
     </head>
     <body>
         <div class="container">
@@ -23,8 +23,8 @@
                 <div class="text-field">
                     <label class="detail-label">Email</label>
                     <span class="detail-value">
-                        <!-- <?php $_SESSION['email']?> -->
-                        email-value
+                        <?php echo $_SESSION['email']?>
+                        <!-- email-value -->
                     </span>
                     <!-- <button type="button" class="email-edit">
                         <i class="fa-solid fa-pencil"></i>
@@ -33,8 +33,8 @@
                 <div class="text-field">
                     <label class="detail-label">Username</label>
                     <span class="detail-value">
-                        <!-- <?php $_SESSION['username']?> -->
-                        username-value
+                        <?php echo $_SESSION['username']?>
+                        <!-- username-value -->
                     </span>
                     <!-- <button type="button" class="username-edit">
                         <i class="fa-solid fa-pencil"></i>
