@@ -79,7 +79,7 @@ function changePage(page){
     //XMLHttpRequest
     const formdata = new FormData();
     
-    var row = (page)*10; 
+    var row = (page-1)*10; 
     formdata.append('rows', row);
     formdata.append('search', document.getElementById("Searchinput").value);
     console.log(document.getElementById("Searchinput").value);
