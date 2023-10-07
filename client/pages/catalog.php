@@ -14,6 +14,8 @@
         <div class="tabgroup" id="tabgroup">
             <script>
                 addnavbar();
+                const processChange = debounce(() => changePage(1));
+                document.getElementById("Searchinput").setAttribute("onkeypress", "processChange()");
             </script>
         </div>
         <div class="pageview">
