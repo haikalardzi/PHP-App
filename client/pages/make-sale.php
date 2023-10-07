@@ -11,9 +11,9 @@
     
     <body>
         <div class="container">
-            <!-- <div class="tabgroup" id="tabgroup">
+            <div class="tabgroup" id="tabgroup">
                 <script>addnavbar();</script>
-            </div> -->
+            </div>
             <div class="saleform-group">
                 <h1 id="title">Make A Sale</h1>
                 <form id="saleform">
