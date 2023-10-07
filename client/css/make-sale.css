@@ -18,13 +18,14 @@
     background-size: cover;
     position: relative;
     place-items: center;
-    display: grid;
+    display: block;
 }
 
 .saleform-group {
     position: relative;
     /* width: 31%;
     height: 31%; */
+    margin-top: 5vh;
     min-width: 300px;
     flex-shrink: 0;
     display: grid;
