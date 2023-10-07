@@ -22,11 +22,15 @@
                 </h1>
                 <div class="text-field">
                     <label class="detail-label">Email</label>
-                    <input class="detail-value" type="text" id="email-value" placeholder=<?php echo $_SESSION['email']?> disabled>
+                    <input class="detail-value" type="text" id="email-value" placeholder=
+                    <?php echo isset($_SESSION["email"])?$_SESSION['email']:"ERROR: no login"?> 
+                    disabled>
                 </div>
                 <div class="text-field">
                     <label class="detail-label">Username</label>
-                    <input class="detail-value" type="text" id="username-value" placeholder=<?php echo $_SESSION['username']?> disabled>
+                    <input class="detail-value" type="text" id="username-value" placeholder=
+                    <?php echo isset($_SESSION["username"])?$_SESSION['username']:"ERROR: no login"?>
+                    disabled>
                 </div>
                 <div class="text-field">
                     <label class="detail-label">Password</label>

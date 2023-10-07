@@ -1,10 +1,11 @@
 <?php
     session_start();
     require_once "connect_database.php";
-    $username_current = $_SESSION["username"];
-    $email_current = $_SESSION["email"];
-    $conn = connect_database();
+    global $username_current; $username_current = $_SESSION["username"];
+    global $email_current; $email_current = $_SESSION["email"];
+    global $conn; $conn = connect_database();
     function username_query($param){
+        global $conn;
         $query = "SELECT * FROM user WHERE username = ?";
         $stmt = $conn->prepare($query);
         if (!$stmt) {
@@ -23,7 +24,8 @@
     }
 
     function update_profile($target_username, $target_email, $target_password){
-        $query = "UPDATE * SET username = ?, email = ?, `password` = ?, WHERE username = $username_current";
+        global $conn; global $username_current;
+        $query = "UPDATE user SET username = ?, email = ?, `password` = ? WHERE `username` = ?";
         //handling if user doesnt want to change some of the column
         if ($target_username == '%') {
             $target_username = $username_current;
@@ -41,12 +43,14 @@
             die("Error in query preparation: " . $conn->error);
         }
 
-        $stmt->bind_param("sss", $target_username, $target_email, $target_password);
+        $stmt->bind_param("ssss", $target_username, $target_email, $target_password, $username_current);
         $result = $stmt->execute();
         if (!$result) {
             die ("Error in query execution: " . $stmt->error);
+        } else {
+            $_SESSION["username"] = $target_username;
+            $_SESSION["email"] = $target_email;
         }
-
     }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -66,8 +70,14 @@
                 update_profile($username, $email, $password);
                 $response = array("success" => true, "message" => "profile is updated");
             }
+        } else {
+            //user doesn't intend to change username
+            //safe to change, can execute
+            update_profile($username, $email, $password);
+            $response = array("success" => true, "message" => "profile is updated");
         }
         
     }
+    echo json_encode($response);
     mysqli_close($conn);
 ?>

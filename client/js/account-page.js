@@ -95,16 +95,36 @@ function submitEdit() {
     } else {
         editedData.append('password', '%');
     }
+    isAllEmpty = true;
     for (const iterator of editedData.values()) {
         if (iterator != '%'){
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '../../server/controllers/account-page.php', true);
-            xhr.send(formData);
-            location.reload();
-            return;
+            isAllEmpty = false;
+            break;
         }
     }
-    // all form is empty or FormData is appended '%'
-    // cancelling if so
-    console.log("all form is empty, cancelling");
+    if (!isAllEmpty) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '../../server/controllers/update_profile.php', true);
+        console.log("submitting")
+        xhr.send(editedData);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Process the response data here
+                var responseData = JSON.parse(xhr.responseText);
+                if (responseData.success) {
+                    alert(responseData.message);
+                } else {
+                    alert("error: " + responseData.message)
+                }
+                // Update the DOM or perform other actions with the data
+            } else if (xhr.status === 404) {
+                var responseData = JSON.parse(xhr.responseText);
+                console.log(responseData.message);
+            }
+        };
+        location.reload();
+    } else {
+        console.log("all form is empty, cancelling");
+    }
+    
 }
