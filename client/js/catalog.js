@@ -1,41 +1,88 @@
-var recordsPerPage = 10;
 var activePage;
 
-function numPages(){
-    return Math.ceil(1000/10)-1;
+
+
+function debounce(func, delay=1000){
+    let timer = null;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+    };
 }
 
-prevPage = () => {
-    activePage = document.getElementsByClassName("active").item(0).innerHTML;
-    if (activePage > 1){
-        activePage--;
-        changePage(activePage);
+
+
+//Promise is to syncronize asyncronous process
+const input = document.getElementById("Searchinput");
+var myPromises = new Promise(function(resolve, reject){
+    const formdata = new FormData();
+    formdata.append("signal", "getTotalRows");
+    formdata.append('search', document.getElementById("Searchinput").value);
+    console.log(input.value);
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '../../server/controllers/catalog.php', true);
+    xhr.send(formdata);
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4 && xhr.status === 200){
+            var responseData = JSON.parse(xhr.responseText);
+            if (responseData.success){
+                //if expected process occur during promise get the expected value
+                resolve(Math.ceil(responseData.total[0]/10)-1);
+            } else {
+                alert("error: " + responseData.message);
+                //unexpected process occur during promise
+                reject("error");
+            }
+        } else if (xhr.status === 404){
+            var response = JSON.parse(xhr.responseText);
+            console.log(response.message);
+            reject("error");
+        }
     }
-}
+});
 
+var numPages;
+//get the value of promise
+myPromises.then(
+    function(value) {numPages = value;},
+    function(error) {numPages = error;}
+    );
+    
+    
+    prevPage = () => {
+        activePage = document.getElementsByClassName("active").item(0).innerHTML;
+        if (activePage > 1){
+            activePage--;
+            changePage(activePage);
+        }
+    }
+    
 nextPage = () => {
     activePage = document.getElementsByClassName("active").item(0).innerHTML;
-    if (activePage < numPages()){
+    if (activePage < numPages){
         activePage++;
         changePage(activePage);
     }
 }
 
-changePage = (page) => {
+function changePage(page){
     var btnNext = document.getElementById("btnNext");
     var btnPrev = document.getElementById("btnPrev");
     var listingTable = document.getElementById("catalogview");
     var pages = [document.getElementById("secondToRight"),
-                 document.getElementById("firstToRight"),
-                 document.getElementById("middle"),
-                 document.getElementById("firstToLeft"),
-                 document.getElementById("secondToLeft")];
+    document.getElementById("firstToRight"),
+    document.getElementById("middle"),
+    document.getElementById("firstToLeft"),
+    document.getElementById("secondToLeft")];
     
     //XMLHttpRequest
     const formdata = new FormData();
-
+    
     var row = (page)*10; 
     formdata.append('rows', row);
+    formdata.append('search', document.getElementById("Searchinput").value);
+    console.log(document.getElementById("Searchinput").value);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../../server/controllers/catalog.php', true);
     //sending
@@ -51,22 +98,22 @@ changePage = (page) => {
                     if (page < 1){
                         page = 1;
                     }
-                    if (page > numPages()){
-                        page = numPages();
+                    if (page > numPages){
+                        page = numPages;
                     }
                     listingTable.innerHTML ="";
-                
+                    
                     for (var i = 0; i < 10 && itemList.length ; i++){
                         listingTable.innerHTML += `<button class="showItem">
-                            <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
-                            <p>${itemList[i][1]}</p>
-                            <p>Rp${itemList[i][4]}</p>
-                            <p>Quantity:${itemList[i][5]}</p>
-                            <p>${itemList[i][6]}</p>
+                        <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
+                        <p>${itemList[i][1]}</p>
+                        <p>Rp${itemList[i][4]}</p>
+                        <p>Quantity:${itemList[i][5]}</p>
+                        <p>${itemList[i][6]}</p>
                         </button>`
                     }
                 
-                    var endpage = numPages()-4;
+                    var endpage = numPages-4;
                     
                     for (var i = 0; i < pages.length; i++){
                         
@@ -75,7 +122,7 @@ changePage = (page) => {
                         if (page-1 < 2){
                             pages[i].innerHTML = i+1;
                             pages[i].setAttribute("href", `javascript:changePage(${i+1})`);
-                        } else if (page > numPages()-2){
+                        } else if (page > numPages-2){
                             pages[i].innerHTML = endpage + i;
                             pages[i].setAttribute("href", `javascript:changePage(${endpage + i})`);
                         } else {
@@ -88,9 +135,9 @@ changePage = (page) => {
                         pages[0].classList.add("active");
                     } else if (page == 2){
                         pages[1].classList.add("active");
-                    } else if (page == numPages()-1){
+                    } else if (page == numPages-1){
                         pages[3].classList.add("active");
-                    } else if (page == numPages()){
+                    } else if (page == numPages){
                         pages[4].classList.add("active");
                     } else {
                         pages[2].classList.add("active");
@@ -100,8 +147,8 @@ changePage = (page) => {
                     } else {
                         btnPrev.style.visibility = "visible";
                     }
-                
-                    if (page == numPages()){
+                    
+                    if (page == numPages){
                         btnNext.style.visibility = "hidden";
                     } else {
                         btnNext.style.visibility = "visible";
@@ -111,14 +158,14 @@ changePage = (page) => {
                     alert("error: " + responseData.message);
                 }
             } catch (error){
-                
+
             }
         } else if (xhr.status === 404){
             var response = JSON.parse(xhr.responseText);
             console.log(response.message);
         }
     }
-
-
-
+    
+    
+    
 }
