@@ -1,12 +1,3 @@
-.navbar-container{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #AA1E1E;
-    border: none;
-    outline: none;
-    /* height: 15%; */
-}
-
 img{
     /* float: left; */
     margin: 10px;
@@ -15,9 +6,13 @@ img{
 }
 
 .tabgroup{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #AA1E1E;
+    border: none;
+    outline: none;
     color: #eaeaea;
     /* float: left; */
-
     font-size: 17px;
     width: 100%;
     height: 8%;

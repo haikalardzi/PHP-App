@@ -1,6 +1,5 @@
 addnavbar = () => {
     return document.getElementById("tabgroup").innerHTML =`
-    <div class="navbar-container">
     <a class="tabexpand" href="#">
         <i class="fa-solid fa-bars"></i>
     </a>
@@ -19,6 +18,5 @@ addnavbar = () => {
         <i class="fa-solid fa-clipboard-list"></i>
         Catalog
     </a>
-</div>
     `
 }
