@@ -24,6 +24,7 @@
             if (!$result) {
                 die("Error in query execution: " . $stmt->error);
             } else {
+                $_SESSION['email'] = $email;
                 $_SESSION['username'] = $username;
                 $_SESSION['admin_status'] = false;
                 $response = array("success" => true, "message" => "sign up for {$email} and {$username} success");

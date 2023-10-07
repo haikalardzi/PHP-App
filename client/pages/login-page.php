@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if (isset($_SESSION['username']) or isset($_SESSION['email'])) {
+        echo '<script type = "text/javascript">  
+        function loggedin_catch() {  
+           alert("You are logged in, please logout first if you want to login again");
+           history.back();  
+        }  
+        loggedin_catch();
+       </script>';
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

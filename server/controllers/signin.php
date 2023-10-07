@@ -14,6 +14,7 @@
         if (!empty($rows_user)) {
             if ($rows_user[0]["username"] == $username and $rows_user[0]["password"] == $password) {
                 $_SESSION['username'] = $username;
+                $_SESSION['email'] = $rows_user[0]["email"];
                 $rows_admin = signin_query($username, $password, "admin");
                 if (!empty($rows_admin) and $rows_admin[0]["admin_username"] == $username){ 
                     $_SESSION['admin_status'] = true;

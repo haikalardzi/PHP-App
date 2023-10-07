@@ -1,4 +1,5 @@
 <?php
+    require_once "connect_database.php";
 //querying with set queries, with differentiation to query user or admin table
 function signin_query($uname, $pass, $table) {
     //establishing connection
