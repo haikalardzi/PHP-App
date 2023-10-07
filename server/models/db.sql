@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`admin` (
   CONSTRAINT `fk_username`
     FOREIGN KEY (`admin_username`)
     REFERENCES `saranghaengbok_db`.`user`(`username`)
+    ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -38,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`item` (
   CONSTRAINT `fk_item_Seller1`
     FOREIGN KEY (`Seller_username`)
     REFERENCES `saranghaengbok_db`.`user` (`username`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 CREATE INDEX `fk_item_Seller1_idx` ON `saranghaengbok_db`.`item` (`Seller_username` ASC);
 
 -- -----------------------------------------------------
@@ -52,10 +53,13 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`cart` (
   PRIMARY KEY(`item_id`, `cart_username`),
   CONSTRAINT `fk_cart_username`
     FOREIGN KEY (`cart_username`)
-    REFERENCES `saranghaengbok_db`.`user`(`username`),
+    REFERENCES `saranghaengbok_db`.`user`(`username`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
   CONSTRAINT `fk_cart_item_id`
     FOREIGN KEY (`item_id`)
     REFERENCES `saranghaengbok_db`.`item`(`item_id`)
+    ON DELETE CASCADE
 );
 
 
