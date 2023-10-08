@@ -1,6 +1,5 @@
 <?php session_start();
     require_once "../../server/controllers/loggedout_catch.php";
-    loggedout_catch();
 ?>
 <!DOCTYPE html>
 <html>
