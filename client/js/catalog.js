@@ -1,22 +1,9 @@
 var activePage;
 
-
-
-function debounce(func, delay=1000){
-    let timer = null;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => func.apply(this, args), delay);
-    };
-}
-
-
-
 //Promise is to syncronize asyncronous process
 const input = document.getElementById("Searchinput");
 var myPromises = new Promise(function(resolve, reject){
     const formdata = new FormData();
-    formdata.append("signal", "getTotalRows");
     formdata.append('search', document.getElementById("Searchinput").value);
     console.log(input.value);
     
@@ -28,7 +15,7 @@ var myPromises = new Promise(function(resolve, reject){
             var responseData = JSON.parse(xhr.responseText);
             if (responseData.success){
                 //if expected process occur during promise get the expected value
-                resolve(Math.ceil(responseData.total[0]/10)-1);
+                resolve(Math.ceil(responseData.total[0]/10));
             } else {
                 alert("error: " + responseData.message);
                 //unexpected process occur during promise
@@ -113,7 +100,7 @@ function changePage(page){
                         </button>`
                     }
                 
-                    var endpage = numPages-4;
+                    var endpage = numPages-5;
                     
                     for (var i = 0; i < pages.length; i++){
                         
