@@ -1,13 +1,7 @@
-<?php session_start();
-if (!isset($_SESSION['username']) or !isset($_SESSION['email'])) {
-    echo '<script type = "text/javascript">  
-    function loggedout_catch() {  
-       alert("You are logged in, please logout first if you want to login again");
-       location.href = "../pages/login-page.php"
-    }  
-    loggedout_catch();
-   </script>';
-}?>
+<?php 
+    session_start();
+    require_once "../../server/controllers/loggedout_catch.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>

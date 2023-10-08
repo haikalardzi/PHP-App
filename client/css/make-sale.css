@@ -44,9 +44,10 @@
 }
 
 
-form p {
-    text-align : center;
-    font-size : 20px;
+#price-criteria, #quantity-criteria {
+    text-align : left;
+    font-size : medium;
+    color: red;
     /* color : #ffffffab; */
 }
 

@@ -1,3 +1,7 @@
+<?php session_start();
+    require_once "../../server/controllers/loggedout_catch.php";
+    loggedout_catch();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +11,7 @@
         <link rel="stylesheet" href="../css/navbar.css">
         <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
         <script src="../js/navbar.js"></script>
+        <script src="../js/cart.js"></script>
     </head>
     <body>
         <div class="container">
@@ -53,7 +58,7 @@
                     <!-- contains item divs according to data -->
                 </div>
                 <div class="button-field">
-                    <button id="checkout-button">
+                    <button id="checkout-button" onclick="submitCheckout()">
                     Checkout
                     </button>
                 </div>

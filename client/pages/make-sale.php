@@ -1,3 +1,6 @@
+<?php session_start();
+    require_once "../../server/controllers/loggedout_catch.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +10,7 @@
         <link rel="stylesheet" href="../css/make-sale.css">
         <script src="../js/navbar.js"></script>
         <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
+        <script src="../js/make-sale.js"></script>
     </head>
     
     <body>
@@ -28,11 +32,13 @@
                             <div class="input-field" id="product_description-field">
                                 <input type="text" id="product_description" placeholder="Product Description">
                             </div>
-                            <div class="input-field">
-                                <input type="text" id="product_price" placeholder="Price">
+                            <div class="input-field" id="product_price-field">
+                                <input type="text" id="product_price" placeholder="Price" oninput="checkNumericPrice()">
+                                <p id="price-criteria"> </p>
                             </div>
-                            <div class="input-field">
-                                <input type="text" id="product_qty" placeholder="Quantity">
+                            <div class="input-field" id="product_quantity-field">
+                                <input type="text" id="product_qty" placeholder="Quantity" oninput="checkNumericQuantity()">
+                                <p id="quantity-criteria"> </p>
                             </div>
                         </div>
                         
