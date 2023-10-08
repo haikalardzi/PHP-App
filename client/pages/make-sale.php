@@ -18,21 +18,24 @@
                 <h1 id="title">Make A Sale</h1>
                 <form id="saleform">
                     <div class="input-group">
-                        <div class="input-field">
-                            <input type="text" id="product_name" placeholder="Product Name">
-                        </div>
-                        <div class="input-field">
-                            <input type="text" id="product_description" placeholder="Product Description">
-                        </div>
-                        <div class="input-field">
-                            <input type="text" id="product_price" placeholder="Price">
-                        </div>
-                        <div class="input-field">
-                            <input type="text" id="product_qty" placeholder="Quantity">
-                        </div>
-                        <div class="input-field">
+                        <div class="input-image-field">
                             <input type="image" id="product_image" placeholder="Product Image" title="Product Image">
                         </div>
+                        <div class="input-text-fields">
+                            <div class="input-field">
+                                <input type="text" id="product_name" placeholder="Product Name">
+                            </div>
+                            <div class="input-field" id="product_description-field">
+                                <input type="text" id="product_description" placeholder="Product Description">
+                            </div>
+                            <div class="input-field">
+                                <input type="text" id="product_price" placeholder="Price">
+                            </div>
+                            <div class="input-field">
+                                <input type="text" id="product_qty" placeholder="Quantity">
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="button-field">
                         <button type="button" id="salesubmit">Done</button>
