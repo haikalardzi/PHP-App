@@ -36,3 +36,20 @@ function resetFieldStyle(param_field, criteria_p) {
     param_field.style.borderColor = "black";
     criteria_p.textContent = ' ';
 }
+
+var openFile = function(file) {
+    var input = file.target;
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('image-preview');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+};
+
+function submitSale() {
+    
+    var saleData = new FormData();
+    // saleData.append('item_id', )
+}

@@ -63,9 +63,10 @@
 }
 .input-image-field {
     width: 25vw;
-    height: 25vw;
+    max-height: 25vw;
+    display: inline-flex;
+    flex-direction: column;
     border-radius: 10px;
-    background-color: azure;
     transition: max-height 0.5s;
 }
 .input-text-fields {
@@ -101,11 +102,11 @@
     color: black;
 }
 
-#product_image {
+/* #product_image {
     background-color: azure;
-}
+} */
 
-input {
+.input-field input {
     width: 100%;
     padding: 18px;
     border-color: transparent;
@@ -133,4 +134,10 @@ input {
     outline: 0;
     cursor: pointer;
     transition: background 1s;
+}
+
+#image-preview {
+    background-color: azure;
+    width: 24vw;
+    max-height: 24vw;
 }

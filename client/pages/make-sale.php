@@ -23,7 +23,8 @@
                 <form id="saleform">
                     <div class="input-group">
                         <div class="input-image-field">
-                            <input type="image" id="product_image" placeholder="Product Image" title="Product Image">
+                            <img src="#" id="image-preview" alt="">
+                            <input accept=".jpg, .jpeg"  type="file" id="product_image" placeholder="Product Image" title="Product Image" onchange="openFile(event)">
                         </div>
                         <div class="input-text-fields">
                             <div class="input-field">
@@ -44,7 +45,7 @@
                         
                     </div>
                     <div class="button-field">
-                        <button type="button" id="salesubmit">Done</button>
+                        <button type="button" id="salesubmit" onclick="submitSale()">Done</button>
                     </div>
                 </form>
             </div>
