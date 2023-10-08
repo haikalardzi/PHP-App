@@ -2,13 +2,14 @@
     display: flex;
     justify-content: space-evenly;
     background-color: #AA1E1E;
-    border: none;
+    color: #eaeaea;
     outline: none;
     color: #eaeaea;
     /* float: left; */
     font-size: 17px;
     width: 100%;
     height: 8%;
+    position: relative;
 }
 
 img{

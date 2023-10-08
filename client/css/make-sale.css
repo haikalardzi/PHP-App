@@ -19,21 +19,18 @@
     background-size: cover;
     display: block;
     place-items: center;
+    display: block;
 }
 
 .saleform-group {
-    /* position: relative; */
-    min-width: 50%;
-    /* min-height: 67%; */
-    max-width: 67%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 5%;
-    /* border-style: ridge; */
-    display: block;
-    border-radius: 10px;
-    /* border-width: 10px; */
-    /* background-color: red; */
+    position: relative;
+    /* width: 31%;
+    height: 31%; */
+    margin-top: 5vh;
+    min-width: 300px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
 }
 
 .saleform-group h1 {

@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`item` (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
-CREATE INDEX `fk_item_Seller1_idx` ON `saranghaengbok_db`.`item` (`Seller_username` ASC);
 
 -- -----------------------------------------------------
 -- Table `saranghaengbok_db`.`cart`
@@ -50,6 +49,7 @@ CREATE INDEX `fk_item_Seller1_idx` ON `saranghaengbok_db`.`item` (`Seller_userna
 CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`cart` (
   `item_id` INT NOT NULL,
   `cart_username` VARCHAR(45) NOT NULL,
+  `item_quantity` INT NOT NULL,
   PRIMARY KEY(`item_id`, `cart_username`),
   CONSTRAINT `fk_cart_username`
     FOREIGN KEY (`cart_username`)
@@ -60,6 +60,30 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`cart` (
     FOREIGN KEY (`item_id`)
     REFERENCES `saranghaengbok_db`.`item`(`item_id`)
     ON DELETE CASCADE
+);
+
+-- -----------------------------------------------------
+-- Table `saranghaengbok_db`.`transaction`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `saranghaengbok_db`.`transaction` (
+  `item_id` INT NOT NULL,
+  `buyer_username` VARCHAR(45) NOT NULL,
+  `seller_username` VARCHAR(45) NOT NULL,
+  `item_quantity` INT NOT NULL,
+  PRIMARY KEY(`item_id`, `buyer_username`, `seller_username`),
+  CONSTRAINT `fk_item_id`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `saranghaengbok_db`.`item`(`item_id`)
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION,
+  CONSTRAINT `fk_buyer_username`
+    FOREIGN KEY (`buyer_username`)
+    REFERENCES `saranghaengbok_db`.`user`(`username`)
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_seller_username`
+    FOREIGN KEY (`seller_username`)
+    REFERENCES `saranghaengbok_db`.`user`(`username`)
+    ON UPDATE CASCADE
 );
 
 

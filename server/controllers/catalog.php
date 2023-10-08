@@ -7,7 +7,14 @@
         
         $conn = connect_database();
 
-        $query = "SELECT * FROM `item` WHERE `name` LIKE '%$search%' ORDER BY if (SUBSTRING(name, 1, length('$search'))='$search', 0, 1), name LIMIT $page , 10";
+        $query = "SELECT *
+                 ,(CASE WHEN name LIKE '%$search%' THEN 1 ELSE 0 END) +
+                  (CASE WHEN `Seller_username` LIKE '%$search%' THEN 1 ELSE 0 END) AS priority
+                  FROM item
+                  WHERE name LIKE '%$search%'
+                  OR Seller_username LIKE '%$search%'
+                  ORDER BY priority DESC
+                  LIMIT $page, 10";
         $stmt = $conn->prepare($query);
 
         if (!$stmt){
@@ -33,7 +40,7 @@
         
         $conn = connect_database();
 
-        $query = "SELECT COUNT(item_id) FROM `item` WHERE name LIKE '%$search%'";
+        $query = "SELECT COUNT(item_id) FROM `item` WHERE name LIKE '%$search%' OR Seller_username LIKE '%$search%'";
         $stmt = $conn->prepare($query);
 
         if (!$stmt){
