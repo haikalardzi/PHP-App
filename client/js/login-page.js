@@ -112,7 +112,7 @@ signupBtn.onclick = function(){
     signupBtn.style.color = "#fff";
     signinBtn.style.color = "#555";
     nameField.style.maxHeight = "60px";
-    title.innerHTML = "SIGN UP";``
+    title.innerHTML = "SIGN UP";
     signupBtn.classList.remove("disable");
     signinBtn.classList.add("disable");
            

@@ -5,9 +5,12 @@
     <title>Catalog</title>
     <link rel="stylesheet" href="../css/catalog.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <script src="../js/navbar.js"></script>
-    <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
+    <script src="../js/sidebar.js"></script>
     <script src="../js/catalog.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -35,6 +38,11 @@
                 <a href="javascript:changePage(5)" id="secondToLeft">5</a>
                 <a href="javascript:nextPage()" id="btnNext">Next</a>
             </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <script>
+                addsidebar();
+            </script>
         </div>
     </div>
 </body>
