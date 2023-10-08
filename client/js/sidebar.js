@@ -12,7 +12,7 @@ function closeSidebar(){
 
 addsidebar = () => {
     return document.getElementById("sidebar").innerHTML = `
-    <li><a href='#' id="manageuser">
+    <li><a href='#' id="account">
         <i class="fa-solid fa-user"></i>  Account 
     </a></li>
     <li><a href='#' id="manageuser">
@@ -27,9 +27,9 @@ addsidebar = () => {
         <i class="fa-solid fa-user-plus"></i>
           Add User 
     </a></li>
-    <li><a href='#' id="additem"> 
+    <li><a href='#' id="makesale"> 
         <i class="fa-solid fa-cart-plus"></i>
-          Add Item 
+          Make Sale
     </a></li>    
     <li><a href='#' id="logout"> 
         <i class="fa-solid fa-right-from-bracket"></i>
