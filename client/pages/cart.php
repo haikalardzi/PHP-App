@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="container">
-            <div id="tabgroup">
+            <div class="tabgroup" id="tabgroup">
                 <script>
                     addnavbar();
                 </script>

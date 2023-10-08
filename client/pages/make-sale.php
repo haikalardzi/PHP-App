@@ -30,16 +30,16 @@
                                 <input type="text" id="product_name" placeholder="Product Name">
                             </div>
                             <div class="input-field" id="product_description-field">
-                                <input type="text" id="product_description" placeholder="Product Description">
+                                <textarea type="text" id="product_description" placeholder="Product Description"></textarea>
                             </div>
                             <div class="input-field" id="product_price-field">
                                 <input type="text" id="product_price" placeholder="Price" oninput="checkNumericPrice()">
-                                <p id="price-criteria"> </p>
                             </div>
+                            <p id="price-criteria"> </p>
                             <div class="input-field" id="product_quantity-field">
-                                <input type="text" id="product_qty" placeholder="Quantity" oninput="checkNumericQuantity()">
-                                <p id="quantity-criteria"> </p>
+                                <input type="text" id="product_quantity" placeholder="Quantity" oninput="checkNumericQuantity()">
                             </div>
+                            <p id="quantity-criteria"> </p>
                         </div>
                         
                     </div>
