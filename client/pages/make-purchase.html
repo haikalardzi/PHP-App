@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width, initial scale=1.0">
         <title>Make Purchase</title>
         <link rel="stylesheet" href="../css/make-purchase.css">
-
         <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../css/sidebar.css">
         <script src="../js/navbar.js"></script>
+        <script src="../js/sidebar.js"></script>
         <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
         <script src="../js/make-purchase.js"></script>
     </head>
@@ -20,33 +21,11 @@
             </div>
             <div class="purchaseform-group">
                 <h1 id="title">Make A Purchase</h1>
-                <form id="purchaseform">
-                    <div class="input-group">
-                        <div class="input-image-field">
-                            <img src="../image/no_picture.jpeg" id="image-preview" alt="">
-                        </div>
-                        <div class="input-text-fields">
-                            <div class="input-field">
-                                <input type="text" id="product_name" placeholder="Product Name" disabled>
-                            </div>
-                            <div class="input-field" id="product_description-field">
-                                <textarea type="text" id="product_description" placeholder="Product Description" disabled></textarea>
-                            </div>
-                            <div class="input-field" id="product_price-field">
-                                <input type="text" id="product_price" placeholder="Price" oninput="checkNumericPrice()" disabled>
-                            </div>
-                            <p id="price-criteria"> </p>
-                            <div class="input-field" id="product_quantity-field">
-                                <input type="text" id="product_quantity" placeholder="Quantity" oninput="checkNumericQuantity()" required>
-                            </div>
-                            <p id="quantity-criteria"> </p>
-                        </div>
-                        
-                    </div>
-                    <div class="button-field">
-                        <button type="button" id="purchasesubmit" onclick="submitPurchase()">Done</button>
-                    </div>
-                </form>
+                <div id="purchaseform">
+                    <script>
+                        itemDetail();
+                    </script>
+                </div>
             </div>
             <div class="sidebar" id="sidebar">
                 <script>
