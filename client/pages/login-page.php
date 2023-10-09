@@ -16,18 +16,18 @@
     <meta name="viewport" content="width=device-width, initial scale=1.0">
     <title>Sign In and Sign Up</title>
     <link rel="stylesheet" href="../css/login-page.css">
-    <!-- <link rel="stylesheet" href="../css/navbar.css"> -->
+    <link rel="stylesheet" href="../css/navbar.css">
     <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
-    <!-- <script src="../js/navbar.js"></script> -->
+    <script src="../js/navbar.js"></script>
 
 </head>
 <body>
 <div class="container">
-    <!-- <div class="tabgroup" id="tabgroup">
+    <div class="tabgroup" id="tabgroup">
         <script>
             addnavbar();
         </script>
-    </div> -->
+    </div>
     <img class="icon" src="../image/logoregis.svg" width="58%" height="26%">
     <div class="form-box">
         <h1 id="title">SIGN UP</h1>

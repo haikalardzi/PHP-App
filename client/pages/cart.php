@@ -62,6 +62,11 @@
                     </button>
                 </div>
             </div>
+            <div class="sidebar" id="sidebar">
+                <script>
+                    addsidebar();
+                </script>
+            </div>
         </div>
     </body>
 </html>

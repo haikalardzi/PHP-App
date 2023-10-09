@@ -51,6 +51,11 @@
                     <button id="submit-edit-button" onclick="submitEdit()">Submit</button>
                 </div>
             </div>
+            <div class="sidebar" id="sidebar">
+                <script>
+                    addsidebar();
+                </script>
+            </div>
         </div>
         <script src="../js/account-page.js"></script>
     </body>
