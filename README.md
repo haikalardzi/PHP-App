@@ -1,20 +1,51 @@
-## Panduan Pengerjaan
-Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
-1. Buatlah grup pada Gitlab dengan format "IF3110-2023-01-XX", dengan XX adalah nomor kelompok (untuk K1 dan K2) atau kode kelompok (untuk K3).
-2. Tambahkan anggota tim pada grup anda.
-3. **Fork** pada repository ini dengan organisasi yang telah dibuat.
-4. Ubah hak akses repository hasil Fork anda menjadi **private**.
-5. Hal-hal yang harus diperhatikan.
-    * Silakan commit pada repository anda (hasil fork)
-    * Lakukan beberapa commit dengan pesan yang bermakna, contoh: “add register form”, “fix logout bug”, jangan seperti “final”, “benerin dikit”, “fix bug”.
-    * Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
-    * Commit dari setiap anggota tim akan mempengaruhi penilaian.
-    * Jadi, setiap anggota tim harus melakukan commit yang berpengaruh terhadap proses pembuatan aplikasi.
-    * Sebagai panduan bisa mengikuti [semantic commit](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
-6. Buatlah file README yang berisi:
-    * Deskripsi aplikasi web
-    * Daftar requirement
-    * Cara instalasi
-    * Cara menjalankan server
-    * Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan 
-    * Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+# TUGAS BESAR IF3110 PENGEMBANGAN APLIKASI BERBASIS WEB
+
+Untuk Tugas Besar 1 IF3110 Pengembangan Aplikasi Berbasis Web, kami dari Kelompok I mengembangkan *website* Saranghaengbok. Saranghaengbok ditujukan sebagai media jasa titip *merchandise* K-Pop. 
+
+## Requirement
+* Docker Desktop
+
+## Instalasi
+
+1. Clone repositori dengan *command* berikut
+```
+git clone https://gitlab.informatika.org/if3110-2023-01-i/tugas-besar-1.git
+```
+## Menjalankan Server
+
+1. Pindah ke direktori repositori
+```sh
+cd tugas-besar-1
+```
+2. Masukkan *command* berikut ke terminal
+```sh
+docker compose up --build
+``` 
+3. *Copy* dan *paste* tautan di bawah di *browser*
+```sh
+localhost:8008/client/pages/login-page.php
+```  
+4. Tekan "Enter"  
+
+
+## Tampilan Aplikasi
+
+<br/>
+<br/> <img src="public/signup.png" alt="sign up page" width="1280">
+<br/>
+<br/> <img src="public/signin.png" alt="sign in page" width="1280">
+<br>
+<br/> <img src="public/home.png" alt="catalog page" width="1280">
+<br>
+
+## Pembagian Tugas
+
+### Server-side
+Login : 13521009, 13521012  
+Register : 13521009, 13521012 
+
+
+### Client-side
+Login : 13521009, 13521012 
+Register : 13521009, 13521012 
+Sidebar : 13521009, 13521012, 13521020

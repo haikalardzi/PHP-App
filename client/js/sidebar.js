@@ -27,9 +27,9 @@ addsidebar = () => {
         <i class="fa-solid fa-user-plus"></i>
           Add User 
     </a></li>
-    <li><a href='../pages/make-sale.php' id="additem"> 
+    <li><a href='../pages/make-sale.php' id="makesale"> 
         <i class="fa-solid fa-cart-plus"></i>
-          Add Item 
+          Make Sale
     </a></li>    
     <li><a href='../../server/controllers/signout.php' id="logout"> 
         <i class="fa-solid fa-right-from-bracket"></i>
