@@ -105,5 +105,5 @@ function deleteUser(){
     }
     localStorage.removeItem("username");
     console.log("sip del");
-    location.href = "../pages/user-manage.php";
+    location.href = "user-manage.php";
 }

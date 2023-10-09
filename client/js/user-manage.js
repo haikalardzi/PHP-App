@@ -1,7 +1,7 @@
 
 function sendItem(username){
     localStorage.setItem("username", username);
-    location.href = "../protoype/admin-user-detail.html"
+    location.href = "admin-user-detail.php"
 }
 
 function usertable(){
