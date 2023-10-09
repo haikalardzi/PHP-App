@@ -7,5 +7,7 @@ if (!isset($_SESSION['username']) or !isset($_SESSION['email'])) {
     }  
     loggedout_catch();
    </script>';
+} else if (isset($_COOKIE['username'])) {
+   // continue
 }
 ?>
