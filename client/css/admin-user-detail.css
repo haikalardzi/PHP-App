@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    box-sizing: border-box;
+    transition: 0.5;
+}
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    mix-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    padding-left: 5%;
+}
+
+.Username{
+    text-align: center;
+    padding: 10px;
+}
+
+.layer{
+    border: outset thick;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #5c12b1;
+    color: #f2f2f2;
+    width: 70%;
+    left: 15%;
+    position: relative;
+}
+
+.user-stat-container{
+    border: ridge;
+    position: relative;
+    left: 15%;
+    width: 70%;
+    height: 20vh;
+}
+
+.stat-box{
+    float: left;
+    border: ridge;
+    width: 25%;
+    height: 20vh;
+}
+
+.detail-container{
+    text-align: left;
+    width: 70%;
+    left: 15%;
+    position: relative;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border:outset thick;
+}
+
+.input-field{
+    border: ridge;
+    margin: 15px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+    color: black;
+}
+
+input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px;
+    font-size: 20px;
+}
+
+#showpass{
+    border: none;
+    font-size: 30px;
+    background-color: transparent;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-field{
+    padding-bottom: 20px;
+}
+
+.confirm{
+    flex-basis: 48%;
+    background: #3c00a0;
+    width: 13%;
+    color: #fff;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.delete-user{
+    float: right;
+    flex-basis: 48%;
+    width: 13%;
+    background: red;
+    color: #fff;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
