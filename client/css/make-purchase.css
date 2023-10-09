@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    box-sizing: border-box;
+    transition: 0.5;
+}
+
+
+.container{
+    max-width: 100%;
+    height: 100vh;
+    mix-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchaseform-group {
+    flex: 1 1 auto;
+    position: relative;
+    padding-top: 5vh;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.purchaseform-group h1 {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+
+
+#price-criteria, #quantity-criteria {
+    text-align : left;
+    font-size : small;
+    color: red;
+    padding-left: 10px;
+    /* color : #ffffffab; */
+}
+
+@media screen and ((max-width: 600px)) {
+    .input-group{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+#purchaseform {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.input-group {
+    display: flex;
+    flex: 1 1 auto;
+}
+.input-image-field {
+    width: 25vw;
+    max-height: 25vw;
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: max-height 0.5s;
+}
+.input-text-fields {
+    flex: 1 1 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.input-field {
+    margin: 10px;
+    border-radius: 10px;
+    align-items: center;
+    background-color: #eaeaea;
+    transition: max-height 0.5s;
+    overflow: hidden;
+    color: black ;
+}
+
+#product_description-field{
+    display: flex;
+}
+
+#product_description {
+    flex: 1 1 auto;
+    resize:vertical;
+    background-color: transparent;
+    padding: 10px;
+    font-size: small;
+    border-color: transparent;
+}
+
+.input-field ::placeholder {
+    color: black;
+}
+
+/* #product_image {
+    background-color: azure;
+} */
+
+.input-field input {
+    width: 100%;
+    padding: 18px;
+    border-color: transparent;
+}
+
+.button-field {
+    width: 100%;
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.button-field button{
+    /* flex-basis: 48%; */
+    min-width: 25%;
+    height: 5vh;
+    border-color: transparent;
+    margin-right: 15px;
+    /* margin-bottom: 15px; */
+    background: #3c00a0;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+#image-preview {
+    background-color: azure;
+    width: 24vw;
+    max-height: 24vw;
+}
