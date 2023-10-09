@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial scale=1.0">
-    <title>Catalog</title>
+    <title>Admin: User Manage</title>
     <link rel="stylesheet" href="../css/user-manage.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/sidebar.css">

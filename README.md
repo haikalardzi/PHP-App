@@ -44,8 +44,7 @@ localhost:8008/client/pages/login-page.php
 Login : 13521009, 13521012  
 Register : 13521009, 13521012 
 Mock datas: 13521009
-Logout : 13521009, 13521012
-Navigation bar : 13521012
+Logout : 13521009
 User edit profile : 13521009
 User making sales : 13521009
 Database Schema : 13521009
@@ -53,10 +52,11 @@ Dockerfile, docker-compose : 13521009
 Catalog : 13521012
 Pagination : 13521012
 Search : 13521012
-
+User Manage : 13521012
+Admin User Detail (RUD) : 13521012
 
 ### Client-side
-Login : 13521009, 13521012 
+Login : 13521009, 13521012
 Register : 13521009, 13521012 
 Navigation bar : 13521012
 User edit profile : 13521009
@@ -66,3 +66,6 @@ Sidebar : 13521009, 13521012, 13521020
 Catalog : 13521012
 Pagination : 13521012
 Search : 13521012
+User Manage : 13521012
+Admin User Detail (RUD) : 13521012
+RWD : 13521012

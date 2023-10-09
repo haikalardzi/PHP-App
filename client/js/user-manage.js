@@ -1,7 +1,7 @@
 
 function sendItem(username){
     localStorage.setItem("username", username);
-    location.href =  "#";
+    location.href = "../protoype/admin-user-detail.html"
 }
 
 function usertable(){
@@ -29,7 +29,7 @@ function usertable(){
                         </tr>`;
                     for (var i = 0; i < itemList.length; i++){
                         tablecontainer.innerHTML += `
-                        <tr class="contenttable" href="#" onclick="sendItem('${itemList[i][1]}')">
+                        <tr class="contenttable" onclick="sendItem('${itemList[i][1]}')">
                             <td>${itemList[i][1]}</td>
                             <td>${itemList[i][0]}</td>
                             <td>${itemList[i][2]}</td>
