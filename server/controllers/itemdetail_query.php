@@ -3,7 +3,7 @@
     global $conn; $conn = connect_database();
     if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["signal"] == "make-purchase") {
         global $conn;
-        $query = "SELECT * FROM `item` WHERE username = (?)
+        $query = "SELECT * FROM `item` WHERE item_id = (?)
         ";
         $item_id = $_POST["item_id"];
 
