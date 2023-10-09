@@ -1,4 +1,6 @@
 <?php 
+    require_once "connect_database.php";
+    global $conn; $conn = connect_database();
     if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["signal"] == "make-purchase") {
         global $conn;
         $query = "SELECT * FROM `item` WHERE username = (?)
