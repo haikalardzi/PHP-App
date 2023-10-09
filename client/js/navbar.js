@@ -11,7 +11,7 @@ addnavbar = () => {
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
-        <a class="tabright" href="#">
+        <a class="tabright" href="../pages/cart.php">
             <i class="fa-solid fa-cart-shopping"></i>
             Cart
         </a>

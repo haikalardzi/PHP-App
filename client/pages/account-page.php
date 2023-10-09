@@ -1,4 +1,7 @@
-<?php session_start()?>
+<?php 
+    session_start();
+    require_once "../../server/controllers/loggedout_catch.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,16 +9,16 @@
         <title>Account Page</title>
         <link rel="stylesheet" href="../css/account-page.css">
         <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
-        <!-- <link rel="stylesheet" href="../css/navbar.css"> -->
-        <!-- <script src="../js/navbar.js"></script> -->
+        <link rel="stylesheet" href="../css/navbar.css">
+        <script src="../js/navbar.js"></script>
     </head>
     <body>
         <div class="container">
-            <!-- <div class="tabgroup" id="tabgroup">
+            <div class="tabgroup" id="tabgroup">
                 <script>
                     addnavbar();
                 </script>
-            </div> -->
+            </div>
             <div class="account-details">
                 <h1>
                     Account Details
@@ -23,13 +26,13 @@
                 <div class="text-field">
                     <label class="detail-label">Email</label>
                     <input class="detail-value" type="text" id="email-value" placeholder=
-                    <?php echo isset($_SESSION["email"])?$_SESSION['email']:"ERROR: no login"?> 
+                    <?php echo isset($_SESSION["email"])?$_SESSION['email']:"<nologin>"?> 
                     disabled>
                 </div>
                 <div class="text-field">
                     <label class="detail-label">Username</label>
                     <input class="detail-value" type="text" id="username-value" placeholder=
-                    <?php echo isset($_SESSION["username"])?$_SESSION['username']:"ERROR: no login"?>
+                    <?php echo isset($_SESSION["username"])?$_SESSION['username']:"<nologin>"?>
                     disabled>
                 </div>
                 <div class="text-field">
@@ -47,6 +50,11 @@
                     <button id="cancel-edit-button" onclick="cancelEdit()">Cancel</button>
                     <button id="submit-edit-button" onclick="submitEdit()">Submit</button>
                 </div>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <script>
+                    addsidebar();
+                </script>
             </div>
         </div>
         <script src="../js/account-page.js"></script>

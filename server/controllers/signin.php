@@ -15,9 +15,11 @@
             if ($rows_user[0]["username"] == $username and $rows_user[0]["password"] == $password) {
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $rows_user[0]["email"];
+                setcookie("username", $username, time()+60*60);
                 $rows_admin = signin_query($username, $password, "admin");
                 if (!empty($rows_admin) and $rows_admin[0]["admin_username"] == $username){ 
                     $_SESSION['admin_status'] = true;
+                    setcookie("admin_status", true);
                     $response = array("success" => true, "message" => "admin {$username} is found");
                 } else {
                     $_SESSION['admin_status'] = false;

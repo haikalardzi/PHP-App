@@ -33,7 +33,7 @@ signinBtn.onclick = function(){
                     username = "";
                     password = "";
                     alert(responseData.message);
-                    location.href = "../pages/account-page.php";
+                    location.href = "../pages/catalog.php";
                 } else {
                     alert("error: " + responseData.message)
                 }
@@ -92,7 +92,7 @@ signupBtn.onclick = function(){
                     username = "";
                     password = "";
                     alert("Sign up success: " + responseData.message);
-                    location.href = "../pages/account-page.php";
+                    location.href = "../pages/catalog.php";
                 } else {
                     console.log("Caught exception");
                     console.log("error: " + responseData.message);
