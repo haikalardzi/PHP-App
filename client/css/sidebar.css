@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+
+.sidebar{
+    width: 13%;
+    top: 8%;
+    left: -20%;
+    padding-top: 2vh;
+    background-color: rgb(12, 12, 82);
+    height: 92%;
+    transition: all 0.2s;
+    position: fixed;
+}
+
+.sidebar li{
+    list-style-type: none;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar li a{
+    font-size: 15px;
+    margin-left: 2px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+#logout{
+    position: absolute;
+    bottom: 10px;
+}
+
+
