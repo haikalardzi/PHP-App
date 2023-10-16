@@ -53,9 +53,10 @@ nextPage = () => {
     }
 }
 
-function redirectToPurchase() {
-    location.href = "";
-    localStorage.setItem()
+function redirectToPurchase(id) {
+    location.href = "make-purchase.html";
+    // location.href = "make-purchase.php";
+    localStorage.setItem("purchase", id)
 }
 
 function changePage(page){
@@ -96,7 +97,7 @@ function changePage(page){
                     listingTable.innerHTML ="";
                     
                     for (var i = 0; i < 10 && itemList.length ; i++){
-                        listingTable.innerHTML += `<button class="showItem" onclick = "redirectToPurchase()">
+                        listingTable.innerHTML += `<button class="showItem" onclick = "redirectToPurchase('${itemList[i][0]}')">
                         <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
                         <p>${itemList[i][1]}</p>
                         <p>Rp${itemList[i][4]}</p>
