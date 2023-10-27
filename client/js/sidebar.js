@@ -15,7 +15,7 @@ addsidebar = () => {
     <li><a href='../pages/account-page.php' id="manageuser">
         <i class="fa-solid fa-user"></i>  Account 
     </a></li>
-    <li><a href='#' id="manageuser">
+    <li><a href='../pages/user-manage.php' id="manageuser">
         <i class="fa-solid fa-people-roof"></i> 
           Manage User 
     </a></li>
