@@ -37,13 +37,13 @@ myPromises.then(
     );
     
     
-    prevPage = () => {
-        activePage = document.getElementsByClassName("active").item(0).innerHTML;
-        if (activePage > 1){
-            activePage--;
-            changePage(activePage);
-        }
+prevPage = () => {
+    activePage = document.getElementsByClassName("active").item(0).innerHTML;
+    if (activePage > 1){
+        activePage--;
+        changePage(activePage);
     }
+}
     
 nextPage = () => {
     activePage = document.getElementsByClassName("active").item(0).innerHTML;
@@ -51,12 +51,6 @@ nextPage = () => {
         activePage++;
         changePage(activePage);
     }
-}
-
-function redirectToPurchase(id) {
-    location.href = "make-purchase.html";
-    // location.href = "make-purchase.php";
-    localStorage.setItem("purchase", id)
 }
 
 function changePage(page){
@@ -74,8 +68,11 @@ function changePage(page){
     
     var row = (page-1)*10; 
     formdata.append('rows', row);
+    
+    // taking search keyword from search bar
     formdata.append('search', document.getElementById("Searchinput").value);
     console.log(document.getElementById("Searchinput").value);
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../../server/controllers/catalog.php', true);
     //sending
@@ -97,13 +94,19 @@ function changePage(page){
                     listingTable.innerHTML ="";
                     
                     for (var i = 0; i < 10 && itemList.length ; i++){
-                        listingTable.innerHTML += `<button class="showItem" onclick = "redirectToPurchase('${itemList[i][0]}')">
-                        <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
-                        <p>${itemList[i][1]}</p>
-                        <p>Rp${itemList[i][4]}</p>
-                        <p>Quantity:${itemList[i][5]}</p>
-                        <p>${itemList[i][6]}</p>
-                        </button>`
+                        // listingTable.innerHTML += `<button class="showItem" onclick = "redirectToPurchase('${itemList[i][0]}')">
+                        listingTable.innerHTML += `
+                        <form action="../pages/make-purchase.php" method="GET" id="item_field">
+                            <button class="showItem" type="submit">
+                                <input type="hidden" name="id" value="${itemList[i][0]}">
+                                <img id="${itemList[i][0]}" src="../image/${itemList[i][2]}" alt="${itemList[i][1]}">
+                                <p>${itemList[i][1]}</p>
+                                <p>Rp${itemList[i][4]}</p>
+                                <p>Quantity:${itemList[i][5]}</p>
+                                <p>${itemList[i][6]}</p>
+                            </button>
+                        </form>
+                        `
                     }
                 
                     var endpage = numPages-5;
