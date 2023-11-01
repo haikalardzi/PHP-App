@@ -135,7 +135,7 @@ input{
         width: 50%;
         margin-top: 7px;
     }
-    img{
+    .tabgroup img{
         display: none;
     }
 }

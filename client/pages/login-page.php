@@ -23,11 +23,6 @@
 </head>
 <body>
 <div class="container">
-    <div class="tabgroup" id="tabgroup">
-        <script>
-            addnavbar();
-        </script>
-    </div>
     <img class="icon" src="../image/logoregis.svg" width="58%" height="26%">
     <div class="form-box">
         <h1 id="title">SIGN UP</h1>

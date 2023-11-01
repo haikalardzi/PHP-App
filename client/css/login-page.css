@@ -12,7 +12,7 @@
 .container{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../image/bg.webp);
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../image/bg.webp); */
     mix-blend-mode: multiply;
     background-position: center;
     background-size: cover;
@@ -30,6 +30,9 @@
     max-width: 740px;
     max-height: 199px;
     background-color: transparent;
+    padding: 15px;
+    background-color: #AA1E1E;
+    border-radius: 10px;
 }
 
 
@@ -91,12 +94,13 @@ form p{
     text-align: center;
     font-size: 20px;
     margin-bottom: 10px;
-    color: #ffffffab;
+    /* color: #ffffffab; */
+    border-color: black;
 }
 
 form p a{
     text-decoration: underline;
-    color: #ffffffab;
+    /* color: #ffffffab; */
 }
 
 .btn-field{
@@ -121,4 +125,10 @@ form p a{
 .btn-field button.disable{
     background: linear-gradient(#ffffffab, rgba(255,255,255,0.67));
     color: #555;
+}
+
+#registration{
+    padding: 15px;
+    background-color: #eaeaea;
+    border-radius: 10px;
 }
