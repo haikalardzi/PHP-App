@@ -28,7 +28,9 @@
     <body>
         <div class="container">
             <div class="tabgroup" id="tabgroup">
-                <script>addnavbar();</script>
+                <script>
+                    addnavbar();
+                </script>
             </div>
             <div class="purchaseform-group">
                 <h1 id="title">Make A Purchase</h1>
@@ -41,13 +43,15 @@
                     </div>
                     <div id="input-text-fields">
                         <div class="input-field" id="name-field">
-                            <h2 type="text" id="product_name" disabled><?php echo $item_details["name"]?> </h2>
+                            <h2 type="text" id="product_name" disabled><?php echo $item_details["name"]?></h2>
                         </div>
                         <div class="input-field" id="product_price-field">
-                            <h1 type="text" id="product_price" disabled>Rp<?php echo $item_details["price"]?> </h1>
+                            <h1 style="display: inline;">Rp</h1>
+                            <h1 type="text" id="product_price" disabled style="display: inline;"><?php echo $item_details["price"]?></h1>
                         </div>
                         <div class="input-field" id="product_quantity-field">
-                            <p type="text" id="product_quantity" disabled> Stock: <?php echo $item_details["quantity"]?> </p>
+                            <p  style="display: inline;">Stock: </p>
+                            <p type="text" id="product_quantity" disabled style="display: inline;"><?php echo $item_details["quantity"]?></p>
                         </div>
                         <br>
                         <div class="input-field" id="product_description-field">
@@ -56,23 +60,41 @@
                     </div>
                     <div id= "buy-details">
                         <div id="buy-quantity-field"> 
-                            <button id="min-quantity">
-                                <i class="fa-solid fa-minus"></i>
-                            </button>
-                            <div id="buy-quantity">
-                                <p>1</p>
+                            <div>
+                                <button id="min-quantity" onclick="decrementQuantity()">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
                             </div>
-                            <button id="plus-quantity">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
+                            <div id="buy-quantity">
+                                <input 
+                                    id="buy-quantity-input" 
+                                    type="number" 
+                                    value="1" 
+                                    min="1" 
+                                    oninput="keyboardInputQuantity()"/></input>
+                                <!-- <input id="buy-quantity-input" type="text"></input> -->
+                            </div>
+                            <div>
+                                <button id="plus-quantity" onclick="incrementQuantity()">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div id="buy-price-field">
-                            <p><?php echo $item_details["quantity"]?> </p>
+                            <p style="display: inline;">Rp
+                            </p>
+                            <p style="display: inline;" id="subtotal_price">
+                                <script>
+                                    subTotal();
+                                </script>
+                            </p>
                         </div>
                         <div id="add2cart-button-field">
-                            <i class="fa-solid fa-cart-shopping">
-                            </i>
-                            Add To Cart
+                            <button>
+                                <i class="fa-solid fa-cart-shopping">
+                                </i>
+                                Add To Cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -84,4 +106,7 @@
             </div>
         </div>
     </body>
+    <script id="quantity-editor-max-setter"> 
+        document.getElementById("buy-quantity-input").setAttribute("max", document.getElementById('product_quantity').textContent);
+    </script>
 </html>
