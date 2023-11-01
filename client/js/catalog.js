@@ -4,8 +4,12 @@ var activePage;
 const input = document.getElementById("Searchinput");
 var myPromises = new Promise(function(resolve, reject){
     const formdata = new FormData();
-    formdata.append('search', document.getElementById("Searchinput").value);
-    console.log(input.value);
+    try {
+        formdata.append('search', document.getElementById("Searchinput").value);
+    } catch (error) {
+        
+    }
+    // console.log(input.value);
     
     const xhr = new XMLHttpRequest();
     xhr.open('GET', '../../server/controllers/catalog.php', true);
@@ -70,8 +74,12 @@ function changePage(page){
     formdata.append('rows', row);
     
     // taking search keyword from search bar
-    formdata.append('search', document.getElementById("Searchinput").value);
-    console.log(document.getElementById("Searchinput").value);
+    try {
+        formdata.append('search', document.getElementById("Searchinput").value);
+    } catch (error) {
+        
+    }
+    // console.log(document.getElementById("Searchinput").value);
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../../server/controllers/catalog.php', true);

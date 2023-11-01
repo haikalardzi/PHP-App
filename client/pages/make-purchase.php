@@ -90,7 +90,7 @@
                             </p>
                         </div>
                         <div id="add2cart-button-field">
-                            <button>
+                            <button onclick="addToCart()">
                                 <i class="fa-solid fa-cart-shopping">
                                 </i>
                                 Add To Cart
@@ -108,5 +108,8 @@
     </body>
     <script id="quantity-editor-max-setter"> 
         document.getElementById("buy-quantity-input").setAttribute("max", document.getElementById('product_quantity').textContent);
+    </script>
+    <script id="item-id2js" type="text/javascript">
+        var item_id = "<?php echo $_GET['id']?>";
     </script>
 </html>

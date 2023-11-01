@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "../../server/controllers/loggedout_catch.php";
     require_once "connect_database.php";
     global $conn; $conn = connect_database();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
