@@ -21,7 +21,7 @@
 
 
         if (!$result) {
-            $response = array("success" => "false", "message" => $stmt.error);
+            $response = array("success" => "false", "message" => $stmt->error);
             die ("Error in query execution: " . $stmt->error);
         } else {
             $response = array("success" => "true", "message" => "showing ".$cart_username."'s cart", "data" => $resultSet->fetch_all(MYSQLI_ASSOC));

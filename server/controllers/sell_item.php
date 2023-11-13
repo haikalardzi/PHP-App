@@ -35,7 +35,7 @@
         $stmt->bind_param("issssss", $item_id, $name, $picture_path, $description, $price, $quantity, $seller_username);
         $result = $stmt->execute();
         if (!$result) {
-            $response = array("success" => "false", "message" => $stmt.error);
+            $response = array("success" => "false", "message" => $stmt->error);
             die ("Error in query execution: " . $stmt->error);
         } else {
             $response = array("success" => "true", "message" => "item has been added");
