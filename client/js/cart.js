@@ -1,3 +1,4 @@
+var cartDataArray;
 cartList = () => {
     var cartListItems = document.getElementById("cart-list");
     const xhr = new XMLHttpRequest();
@@ -32,6 +33,34 @@ cartList = () => {
                 
             }
             // Update the DOM or perform other actions with the data
+        } else if (xhr.status === 404) {
+            var responseData = JSON.parse(xhr.responseText);
+            console.log(responseData.message);
+        }
+    };
+}
+
+submitCheckout = () => {
+    // send cartDataArray back as post method
+    const cartData = new FormData();
+    cartData.append("data", cartDataArray);
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../server/controllers/transaction.php', true);
+    xhr.send(cartData);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                // Process the response data here
+                var responseData = JSON.parse(xhr.responseText);
+                if (responseData.success) {
+                    alert("Check out success")
+                    location.reload();
+                } else {
+                    alert("error: " + responseData.message)
+                }
+            } catch (error) {
+                alert(error)
+            }
         } else if (xhr.status === 404) {
             var responseData = JSON.parse(xhr.responseText);
             console.log(responseData.message);
