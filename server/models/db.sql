@@ -62,31 +62,6 @@ CREATE TABLE IF NOT EXISTS `saranghaengbok_php`.`cart` (
     ON DELETE CASCADE
 );
 
--- -----------------------------------------------------
--- Table `saranghaengbok_php`.`transaction`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `saranghaengbok_php`.`transaction` (
-  `item_id` INT NOT NULL,
-  `buyer_username` VARCHAR(45) NOT NULL,
-  `seller_username` VARCHAR(45) NOT NULL,
-  `item_quantity` INT NOT NULL,
-  PRIMARY KEY(`item_id`, `buyer_username`, `seller_username`),
-  CONSTRAINT `fk_item_id`
-    FOREIGN KEY (`item_id`)
-    REFERENCES `saranghaengbok_php`.`item`(`item_id`)
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION,
-  CONSTRAINT `fk_buyer_username`
-    FOREIGN KEY (`buyer_username`)
-    REFERENCES `saranghaengbok_php`.`user`(`username`)
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_seller_username`
-    FOREIGN KEY (`seller_username`)
-    REFERENCES `saranghaengbok_php`.`user`(`username`)
-    ON UPDATE CASCADE
-);
-
-
 CREATE user `saranghaengbok_php_admin` IDENTIFIED BY 'BOOMbitchgetouttheway';
 
 flush privileges;
