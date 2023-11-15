@@ -19,10 +19,9 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <script src="https://kit.fontawesome.com/8505941c5b.js" crossorigin="anonymous"></script>
     <script src="../js/navbar.js"></script>
-
 </head>
 <body>
-<div class="container">
+    <div class="container">
     <img class="icon" src="../image/logoregis.svg" width="58%" height="26%">
     <div class="form-box">
         <h1 id="title">SIGN UP</h1>

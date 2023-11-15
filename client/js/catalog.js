@@ -1,37 +1,35 @@
 var activePage;
 
 //Promise is to syncronize asyncronous process
-const input = document.getElementById("Searchinput");
-var myPromises = new Promise(function(resolve, reject){
-    const formdata = new FormData();
-    try {
+try{
+    const input = document.getElementById("Searchinput");
+    var myPromises = new Promise(function(resolve, reject){
+        const formdata = new FormData();
         formdata.append('search', document.getElementById("Searchinput").value);
-    } catch (error) {
-        
-    }
-    // console.log(input.value);
-    
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', '../../server/controllers/catalog.php', true);
-    xhr.send(formdata);
-    xhr.onreadystatechange = function(){
-        if (xhr.readyState === 4 && xhr.status === 200){
-            var responseData = JSON.parse(xhr.responseText);
-            if (responseData.success){
-                //if expected process occur during promise get the expected value
-                resolve(Math.ceil(responseData.total[0]/10));
-            } else {
-                alert("error: " + responseData.message);
-                //unexpected process occur during promise
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '../../server/controllers/catalog.php', true);
+        xhr.send(formdata);
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4 && xhr.status === 200){
+                var responseData = JSON.parse(xhr.responseText);
+                if (responseData.success){
+                    //if expected process occur during promise get the expected value
+                    resolve(Math.ceil(responseData.total[0]/10));
+                } else {
+                    alert("error: " + responseData.message);
+                    //unexpected process occur during promise
+                    reject("error");
+                }
+            } else if (xhr.status === 404){
+                var response = JSON.parse(xhr.responseText);
+                console.log(response.message);
                 reject("error");
             }
-        } else if (xhr.status === 404){
-            var response = JSON.parse(xhr.responseText);
-            console.log(response.message);
-            reject("error");
         }
-    }
-});
+    });
+} catch (error){
+    
+}
 
 var numPages;
 //get the value of promise

@@ -7,5 +7,5 @@ services:
     ports:
       - 8008:80
     environment:
-      DB_URL: mysql://db-php-app/saranghaengbok_php
+      DB_HOST: db-php-app
   

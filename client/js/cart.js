@@ -42,24 +42,22 @@ cartList = () => {
 
 submitCheckout = () => {
     // send cartDataArray back as post method
-    const cartData = new FormData();
-    cartData.append("data", cartDataArray);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '../../server/controllers/transaction.php', true);
-    xhr.send(cartData);
+    xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             try {
                 // Process the response data here
                 var responseData = JSON.parse(xhr.responseText);
                 if (responseData.success) {
-                    alert("Check out success")
-                    location.reload();
+                    alert("transaction success");
+                    location.href = "catalog.php";
                 } else {
-                    alert("error: " + responseData.message)
+
                 }
             } catch (error) {
-                alert(error)
+
             }
         } else if (xhr.status === 404) {
             var responseData = JSON.parse(xhr.responseText);

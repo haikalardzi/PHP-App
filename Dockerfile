@@ -9,5 +9,8 @@ COPY . /var/www/html
 # Expose port 80 for the web server
 EXPOSE 80
 
+# Install mysqli dependency
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
 # Start Apache in the foreground
 CMD ["apache2-foreground"]
