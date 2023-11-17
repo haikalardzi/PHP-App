@@ -54,6 +54,7 @@ Pagination : 13521012
 Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
+Transaction: 13521012
 
 ### Client-side
 Login : 13521009, 13521012
