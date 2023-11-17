@@ -138,7 +138,7 @@
     margin-left: auto;
 }
 
-#buy-details button {
+#buy-details button{
     background: #3c00a0;
     color: #fff;
     height: 40px;
@@ -153,12 +153,14 @@
 #buy-quantity {
     align-self: center;
 }
-
+#buy-quantity-input{
+    width: 40px;
+    text-align: center;
+}
 #quantity-price-field {
     flex: 1 1 auto;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
 }
 
 #buy-quantity-field {
@@ -167,6 +169,18 @@
     flex-flow: row nowrap;
 }
 
+
+/* style for hiding increment and decrement from html */
+#buy-quantity input[type="number"]::-webkit-inner-spin-button,
+#buy-quantity input[type="number"]::-webkit-outer-spin-button,
+#buy-quantity input[type="number"]::-webkit-clear-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#buy-quantity input[type="number"] {
+    -moz-appearance: textfield;
+}
 #buy-price-field {
     align-self: center;
 }
@@ -176,16 +190,17 @@
     background: #3c00a0;
     color: #fff;
     height: 40px;
-    /* width: 40px; */
     border-radius: 10px;
+}
+
+#add2cart-button-field button {
+    width: auto;
     font-size: 20px;
     border: 0;
     outline: 0;
     cursor: pointer;
     transition: background 1s;
-    align-items: center;
-    padding: 15px;
-    align-self: center;
+    padding: 0px 15px;
 }
 #name-field {
     margin-bottom: 0px;
