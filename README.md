@@ -1,31 +1,33 @@
-# TUGAS BESAR IF3110 PENGEMBANGAN APLIKASI BERBASIS WEB
+# SUBMODUL PHP APP
 
-Untuk Tugas Besar 1 IF3110 Pengembangan Aplikasi Berbasis Web, kami dari Kelompok I mengembangkan *website* Saranghaengbok. Saranghaengbok ditujukan sebagai media jasa titip *merchandise* K-Pop. 
+Repositori ini adalah submodul php-app dari Tugas Besar IF3110 Pengembangan Aplikasi Berbasis Web
 
-## Requirement
-* Docker Desktop
-
-## Instalasi
-
-1. Clone repositori dengan *command* berikut
-```
-git clone https://gitlab.informatika.org/if3110-2023-01-i/tugas-besar-1.git
-```
-## Menjalankan Server
-
-1. Pindah ke direktori repositori
+## How to run
+0. Clone repository submodul config dengan
 ```sh
-cd tugas-besar-1
+git clone https://github.com/AlphaThrone/client-spa
+git clone https://github.com/AlphaThrone/rest-service
+git clone https://github.com/AlphaThrone/php-app
+git clone https://github.com/AlphaThrone/config
+git clone https://github.com/AlphaThrone/soap-service
 ```
-2. Masukkan *command* berikut ke terminal
+1. Buka reposity **config** dan jalankan pada terminal
 ```sh
-docker compose up --build
-``` 
-3. *Copy* dan *paste* tautan di bawah di *browser*
-```sh
-localhost:8008/client/pages/login-page.php
-```  
-4. Tekan "Enter"  
+docker compose up --build -d
+```
+2. Lakukan seeding dari backend database dengan cara sebagai berikut: <br>
+    1. Buka phpmyadmin <br>
+    klik [disini](localhost:8080) atau akses link berikut pada browser
+    ```
+    localhost:8080
+    ```
+    2. Pilih database saranghaengbok_php
+    3. Pilih import
+    4. Pilih file pada direktori server/data/data+mock.sql
+3. Web app bisa dijalankan dengan mengakses pada browser
+```
+localhost:8008
+```
 
 
 ## Tampilan Aplikasi
@@ -69,3 +71,8 @@ Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
 RWD : 13521012
+
+### PHP App (Revisi / Tambahan)
+Frontend Halaman Cart : 13521009
+Backend Halaman Make Purchase : 13521009
+Backend Create Transaction : 13521012

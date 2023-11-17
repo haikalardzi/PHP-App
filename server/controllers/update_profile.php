@@ -1,9 +1,9 @@
 <?php
     session_start();
     require_once "connect_database.php";
-    global $username_current; $username_current = $_SESSION["username"];
-    global $email_current; $email_current = $_SESSION["email"];
-    global $conn; $conn = connect_database();
+    $username_current = $_SESSION["username"];
+    $email_current = $_SESSION["email"];
+    $conn = connect_database();
     function username_query($param){
         global $conn;
         $query = "SELECT * FROM user WHERE username = ?";
@@ -24,7 +24,9 @@
     }
 
     function update_profile($target_username, $target_email, $target_password){
-        global $conn; global $username_current;
+        global $conn;
+        global $username_current;
+        global $email_current;
         $query = "UPDATE user SET username = ?, email = ?, `password` = ? WHERE `username` = ?";
         //handling if user doesnt want to change some of the column
         if ($target_username == '%') {
