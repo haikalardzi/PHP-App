@@ -1,31 +1,22 @@
-# TUGAS BESAR IF3110 PENGEMBANGAN APLIKASI BERBASIS WEB
+# SUBMODUL PHP-APP
 
-Untuk Tugas Besar 1 IF3110 Pengembangan Aplikasi Berbasis Web, kami dari Kelompok I mengembangkan *website* Saranghaengbok. Saranghaengbok ditujukan sebagai media jasa titip *merchandise* K-Pop. 
+Repositori ini adalah submodul php-app dari Tugas Besar IF3110 Pengembangan Aplikasi Berbasis Web sekaligus sebagai Milestone 1 Tugas Besar IF3110 Pengembanga Aplikasi Berbasis Web
 
-## Requirement
-* Docker Desktop
-
-## Instalasi
-
-1. Clone repositori dengan *command* berikut
-```
-git clone https://gitlab.informatika.org/if3110-2023-01-i/tugas-besar-1.git
-```
-## Menjalankan Server
-
-1. Pindah ke direktori repositori
+## How to run
+0. Clone repository dengan
 ```sh
-cd tugas-besar-1
+git clone
 ```
-2. Masukkan *command* berikut ke terminal
-```sh
-docker compose up --build
-``` 
-3. *Copy* dan *paste* tautan di bawah di *browser*
-```sh
-localhost:8008/client/pages/login-page.php
-```  
-4. Tekan "Enter"  
+1. Lakukan seeding dari backend database dengan cara sebagai berikut: <br>
+    1. Buka phpmyadmin <br>
+    klik [disini](localhost:8080) atau akses link berikut pada browser
+    ```
+    localhost:8080
+    ```
+    2. Pilih database saranghaengbok_php
+    3. Pilih import
+    4. Pilih file pada server/data/db+mock.sql
+2. Web app bisa dijalankan!
 
 
 ## Tampilan Aplikasi
@@ -54,7 +45,7 @@ Pagination : 13521012
 Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
-Make Purchase : 13521009
+Make Purchase (Before: Not implemented) : 13521009
 
 ### Client-side
 Login : 13521009, 13521012
@@ -70,4 +61,4 @@ Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
 RWD : 13521012
-Cart: 13521009
+Cart (Before: Not implemented): 13521009
