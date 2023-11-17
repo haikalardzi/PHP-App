@@ -56,6 +56,7 @@ Pagination : 13521012
 Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
+Transaction: 13521012
 
 ### Client-side
 Login : 13521009, 13521012
@@ -71,8 +72,11 @@ Search : 13521012
 User Manage : 13521012
 Admin User Detail (RUD) : 13521012
 RWD : 13521012
+<<<<<<< HEAD
 
 ### PHP App (Revisi / Tambahan)
 Frontend Halaman Cart : 13521009
 Backend Halaman Make Purchase : 13521009
 Backend Create Transaction : 13521012
+=======
+>>>>>>> 5d9db0a9e1cfb86b9a5df7f8c57f014a3751d43b
